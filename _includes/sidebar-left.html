@@ -1,5 +1,5 @@
 <header class="masthead">
-  {% if site.avatar -%}
+  <!-- {% if site.avatar -%}
     <div class="avatar">
       {%- if site.avatar contains "://" -%}
         {%- assign avatar = site.avatar -%}
@@ -8,7 +8,7 @@
       {%- endif -%}
       <img src="{{ avatar }}" class="avatar-image" alt="{{ site.author.name }}">
     </div>
-  {%- endif %}
+  {%- endif %} -->
   <div class="masthead-title">
     <a href="{{ "/" | relative_url }}" title="Home">{{ site.title }}</a>
   </div>
@@ -31,7 +31,7 @@
       <ul class="social-icons pure-menu-list">
       {% for social in site.data.social -%}
         <li class="pure-menu-item">
-          <a class="social-icon pure-menu-link" href="{{ social.url }}">
+          <a class="social-icon pure-menu-link" href="{{ social.url }}" target="_blank">
             <i class="{{ social.icon | default: 'fas fa-link' }}" title="{{ social.title }}"></i>
           </a>
         </li>

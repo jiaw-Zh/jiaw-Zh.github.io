@@ -34,7 +34,8 @@ footer {
 }
 
 copyright-footer{
-  position: fixed;
+  position: relative;
+  margin-top: -60px;
   background-color: rgba(43, 166, 166, 0.5);
   color: #FFF;
   bottom: 0;

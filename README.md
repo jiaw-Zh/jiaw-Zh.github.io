@@ -126,7 +126,7 @@ You can set your own cover image by modifying the `cover_image` variable in `_co
 If you discover that the contrast between the cover text color and the cover background color is not enough, you can also adjust these two variables:
 
 ```yml
-cover_bg_color: rgb(40, 73, 77)
+cover_bg_color: rgb(100,115,135)
 cover_color: rgb(255, 255, 255)
 ```
 
