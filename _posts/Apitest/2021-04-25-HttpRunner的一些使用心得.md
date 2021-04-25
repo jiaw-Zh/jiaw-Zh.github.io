@@ -12,7 +12,7 @@ toc: true
 <a href="https://github.com/httprunner/httprunner" target="_blank">HttpRunner</a>
  is a simple & elegant, yet powerful HTTP(S) testing framework.
 
-本文主要记录特定版本： **3.0.1** 的相关使用心得。
+本文主要记录特定版本： **v==3.0.1** 的相关使用心得。
 
 ----
 ## 版本选择
@@ -36,7 +36,7 @@ toc: true
 $pip install httprunner==3.0.1 -i https://mirrors.aliyun.com/pypi/simple/
 ```
 
-鉴于国内的环境环境，因此我们使用一个 **-i** 参数来指定 pypi 源。
+鉴于国内的网络环境，因此我们使用一个 **-i** 参数来指定 pypi 源。
 
 ----
 ## 创建一个 demo
