@@ -61,26 +61,10 @@ httprunner.utils:create_file:371 - created file: demo\.env
 httprunner.utils:create_file:371 - created file: demo\.gitignore
 ```
 
-生成的文件目录：
+生成的文件目录结构：
 
-```shell
-$tree /f demo #windows
-$tree demo -a #unix
-demo
-    │  .env
-    │  .gitignore
-    │  debugtalk.py
-    │
-    ├─api
-    │      demo_api.yml
-    │
-    ├─reports
-    ├─testcases
-    │      demo_testcase.yml
-    │
-    └─testsuites
-            demo_testsuite.yml
-```
+<img src='/img/httprunner/demo_tree.png' width="auto" height="auto">
+
 从上面的目录结构能够很清楚看出来，这个版本的 HttpRunner 分了 **3** 层：api 层、testcase 层、testsuite 层。
 
 > ps.最新版本推荐分两层，个人觉得也可以接受，因为 testcase 里可以调 testcase。
@@ -89,8 +73,8 @@ demo
 ---
 ## 变量作用域
 <br>
-在每一层都可以定义变量，但是各层是有不同的权重啊，api层拥有最高的权重，即如果你已经在
-api 层定义了一个变量，那么在
+在每一层都可以定义变量，但是各层是有不同的权重的，api层拥有最高的权重，即如果你已经在
+api 层定义了一个变量，那么之后除非你在 testcase 层是对
 
 ---
 ## 参数化
