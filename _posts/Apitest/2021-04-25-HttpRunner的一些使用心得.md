@@ -75,14 +75,34 @@ httprunner.utils:create_file:371 - created file: demo\.gitignore
 
 ---
 ## mock 一个接口用于测试
+<br>
 
 接口文档：
+```
+host: http://127.0.0.1:8000
+method: post
+url: /insert
+请求参数：
+{
+  "name": "string",
+  "age": 0,
+  "address": "string",
+  "salary": 0
+}
 
+响应：
+{
+  "success": true,
+  "msg": "msg"
+}
+```
 
 ---
 ## 编写脚本
+<br>
 根据上面的接口文档，我们可以写出如下脚本
 
+api 层：
 ```shell
 $cat api/demo_api.yml
 name: demo api
@@ -101,6 +121,60 @@ request:
 validate:
     - eq: ["status_code", 200]
 ```
+
+testcase 层：
+```shell
+config:
+    name: "demo testcase"
+    base_url: "http://127.0.0.1:8000"
+
+teststeps:
+-
+    name: demo testcase
+    api: api/demo_api.yml
+    variables:
+        name: noel
+        age: 15
+        address: beijing
+        salary: 7777
+    extract:
+        - msg: content.msg
+    validate:
+        - eq: ["status_code", 200]
+```
+
+testsuite 层：
+```shell
+config:
+    name: "demo testsuite"
+    base_url: "http://127.0.0.1:5000"
+
+testcases:
+-
+    name: call demo with api data
+    testcase: testcases/demo_testcase.yml
+```
+执行一下脚本：
+```shell
+$hrun testsuites/demo_testsuite.yml
+2021-04-28 23:16:37.317 | INFO     | httprunner.api:run:334 - HttpRunner version: 3.0.1
+2021-04-28 23:16:37.318 | INFO     | httprunner.loader.load:load_dot_env_file:172 - Loading environment variables from /Users/jiawang/PycharmProjects/oldhttprunner/demo/.env
+2021-04-28 23:16:37.343 | INFO     | httprunner.api:_run_suite:146 - Start to run testcase: call demo with api data
+2021-04-28 23:16:37.343 | INFO     | httprunner.report.html.result:startTest:30 - demo testcase
+2021-04-28 23:16:37.344 | INFO     | httprunner.runner:_run_test:242 - POST http://127.0.0.1:8000/insert
+2021-04-28 23:16:37.350 | INFO     | httprunner.client:request:221 - status_code: 200, response_time(ms): 6.15 ms, response_length: 79 bytes
+
+.
+
+----------------------------------------------------------------------
+Ran 1 test in 0.007s
+
+OK
+2021-04-28 23:16:37.363 | INFO     | httprunner.report.html.gen_report:gen_html_report:34 - Start to render Html report ...
+2021-04-28 23:16:37.396 | INFO     | httprunner.report.html.gen_report:gen_html_report:61 - Generated Html report: /Users/jiawang/PycharmProjects/oldhttprunner/demo/reports/20210428T151637.343656.html
+
+```
+
 
 
 
