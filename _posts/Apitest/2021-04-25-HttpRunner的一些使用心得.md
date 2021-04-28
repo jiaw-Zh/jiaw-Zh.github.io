@@ -80,7 +80,8 @@ httprunner.utils:create_file:371 - created file: demo\.gitignore
 
 
 ---
-看一下各个文件的具体内容
+## 编写脚本
+根据上面的接口文档，我们可以写出如下脚本
 
 ```shell
 $cat api/demo_api.yml
