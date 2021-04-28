@@ -67,8 +67,42 @@ httprunner.utils:create_file:371 - created file: demo\.gitignore
 
 从上面的目录结构能够很清楚看出来，这个版本的 HttpRunner 分了 **3** 层：api 层、testcase 层、testsuite 层。
 
-> ps.最新版本推荐分两层，个人觉得也可以接受，因为 testcase 里可以调 testcase。
+> ps.最新版本推荐分两层，个人觉得也可以接受
+> 
+> 因为设定了 testcase 里可以调 testcase
+> 
 > 感兴趣可以建一个最新版的 demo 看下
+
+---
+## mock 一个接口用于测试
+
+接口文档：
+
+
+---
+看一下各个文件的具体内容
+
+```shell
+$cat api/demo_api.yml
+name: demo api
+variables:
+    body:
+        name: $name
+        age: $age
+        address: $address
+        salary: $salary
+request:
+    url: /insert
+    method: POST
+    headers:
+        Content-Type: "application/json"
+    json: $body
+validate:
+    - eq: ["status_code", 200]
+```
+
+
+
 
 ---
 ## 变量作用域
