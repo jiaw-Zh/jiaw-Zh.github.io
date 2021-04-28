@@ -4,4 +4,5 @@ _site
 .jekyll-metadata
 vendor
 *.DS_Store
+*__pycache__*
 _posts/2021-04-27-resume.md

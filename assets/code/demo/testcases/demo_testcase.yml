@@ -1,0 +1,22 @@
+config:
+    name: "demo testcase"
+    variables:
+        device_sn: "ABC"
+        username: ${ENV(USERNAME)}
+        password: ${ENV(PASSWORD)}
+    base_url: "http://127.0.0.1:8000"
+
+teststeps:
+-
+    name: demo testcase
+    api: api/demo_api.yml
+    variables:
+        name: noel
+        age: 15
+        address: beijing
+        salary: 7777
+    extract:
+        - msg: content.msg
+    validate:
+        - eq: ["status_code", 200]
+
