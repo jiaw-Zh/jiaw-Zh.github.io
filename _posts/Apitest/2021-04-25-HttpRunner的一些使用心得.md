@@ -3,7 +3,7 @@ layout: post
 title:  "HttpRunner 的一些使用心得"
 date:   2021-04-25 10:52:00 +0800
 categories: ApiTest httprunner
-tags: ApiTest 2021
+tags: ApiTest 2021 httprunner
 toc: true
 ---
 
@@ -154,7 +154,11 @@ testcases:
     name: call demo with api data
     testcase: testcases/demo_testcase.yml
 ```
-执行一下脚本：
+---
+
+## 执行一下脚本
+<br>
+
 ```shell
 $hrun testsuites/demo_testsuite.yml
 2021-04-28 23:16:37.317 | INFO     | httprunner.api:run:334 - HttpRunner version: 3.0.1
@@ -174,25 +178,78 @@ OK
 2021-04-28 23:16:37.396 | INFO     | httprunner.report.html.gen_report:gen_html_report:61 - Generated Html report: /Users/jiawang/PycharmProjects/oldhttprunner/demo/reports/20210428T151637.343656.html
 
 ```
+贴一下测试报告里的请求与响应
+```
+Request:
+url	http://127.0.0.1:8000/insert
+method	POST
+headers	
+{
+  "User-Agent": "python-requests/2.25.1",
+  "Accept-Encoding": "gzip, deflate",
+  "Accept": "*/*",
+  "Connection": "keep-alive",
+  "Content-Type": "application/json",
+  "HRUN-Request-ID": "4d2a31e2-481d-425d-8718-540aa8b342bb",
+  "Content-Length": "65"
+}
+body	
+{
+  "name": "noel",
+  "age": 15,
+  "address": "beijing",
+  "salary": 7777
+}
 
+Response:
+ok	True
+url	http://127.0.0.1:8000/insert
+status_code	200
+reason	OK
+cookies	{}
+encoding	utf-8
+headers	
+{
+  "date": "Wed, 28 Apr 2021 15:16:36 GMT",
+  "server": "uvicorn",
+  "content-length": "79",
+  "content-type": "application/json"
+}
+content_type	application/json
+body	
+{
+  "success": true,
+  "msg": "此人名字叫做：noel，十年后此人年龄：25"
+}
+```
 
 
 
 
 ---
-## 变量作用域
+## 变量权重（重点）
 <br>
-在每一层都可以定义变量，但是各层是有不同的权重的，api层拥有最高的权重，即如果你已经在
-api 层定义了一个变量，那么之后除非你在 testcase 层是对
+
+
+在每一层都可以定义变量，但是各层的权重是不同的。api 层拥有最高的权重，
+其次是 testcase，最后是testsuite。
+即如果你已经在 api 层把一个常量赋值给了一个变量，
+那么即使你在 testcase 或者 testsuite 层再去给这个变量赋值，
+也不会生效。
+
+我们可以看一下上面的脚本，我在 testcase 和 testsuite 中都有对 base_url 进行赋值，
+但是最后测试报告中的 base_url 是 testcase 里的。
+
+官方关于变量权重的说明，在
+<a href="https://docs.httprunner.org/user/concepts/#variables-priority" target="_blank">这里
+</a>
 
 ---
-## 参数化
+## 数据驱动
 <br>
 
+HttpRunner 中建议使用的数据文件是 CSV 
 
----
-## 自定义函数
-<br>
 
 
 <br>
