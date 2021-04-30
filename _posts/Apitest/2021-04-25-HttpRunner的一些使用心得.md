@@ -1,15 +1,14 @@
 ---
 layout: post
-title:  "HttpRunner 的一些使用心得"
+title:  "使用 HttpRunner 时的一些值得关注的点"
 date:   2021-04-25 10:52:00 +0800
 categories: ApiTest httprunner
 tags: ApiTest 2021 httprunner
 toc: true
 ---
 
-## 简介
 <br>
-<a href="https://github.com/httprunner/httprunner" target="_blank">HttpRunner</a>
+> <a href="https://github.com/httprunner/httprunner" target="_blank">HttpRunner</a>
  is a simple & elegant, yet powerful HTTP(S) testing framework.
 
 本文主要记录特定版本： **v==3.0.1** 的相关使用心得。
