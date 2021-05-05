@@ -6,7 +6,7 @@ categories: homebrew
 tags: homebrew 2021
 ---
 
-> 此命令仅使用是 MacOS
+> 此命令仅适用于 MacOS
 
 官方关于 **brew services** 命令的说明在
 <a href='https://docs.brew.sh/Manpage#services-subcommand' target="_blank">这里</a>
