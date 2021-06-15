@@ -7,3 +7,4 @@ vendor
 *__pycache__*
 _posts/2021-04-27-resume.md
 _posts/2021-04-27-resume-none-color.md
+.vscode
