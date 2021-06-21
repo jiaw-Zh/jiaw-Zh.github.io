@@ -3,7 +3,7 @@ layout: post
 title:  "使用 HttpRunner 时一些值得关注的点"
 date:   2021-04-25 10:52:00 +0800
 categories: ApiTest httprunner
-tags: ApiTest 2021 httprunner 未完成
+tags: ApiTest 2021 httprunner
 toc: true
 ---
 
@@ -64,7 +64,7 @@ httprunner.utils:create_file:371 - created file: demo\.gitignore
 
 <img src='/img/httprunner/demo_tree.png' width="auto" height="auto">
 
-从上面的目录结构能够很清楚看出来，这个版本的 HttpRunner 分了 **3** 层：api 层、testcase 层、testsuite 层。
+从上面的目录结构能够很清楚看出来，这个版本的 `HttpRunner` 分了 **3** `层：api` `层、testcase` `层、testsuite` 层。
 
 > ps.最新版本推荐分两层，个人觉得也可以接受
 > 
@@ -92,7 +92,7 @@ url: /insert
 响应：
 {
   "success": true,
-  "msg": "msg"
+  "msg": "此人名字叫做：{name}，十年后此人年龄：{age+10}"
 }
 ```
 
@@ -101,7 +101,7 @@ url: /insert
 <br>
 根据上面的接口文档，我们可以写出如下脚本
 
-api 层：
+`api` 层：
 ```shell
 $cat api/demo_api.yml
 name: demo api
@@ -121,7 +121,7 @@ validate:
     - eq: ["status_code", 200]
 ```
 
-testcase 层：
+`testcase` 层：
 ```shell
 config:
     name: "demo testcase"
@@ -142,7 +142,7 @@ teststeps:
         - eq: ["status_code", 200]
 ```
 
-testsuite 层：
+`testsuite` 层：
 ```shell
 config:
     name: "demo testsuite"
@@ -222,22 +222,19 @@ body
 }
 ```
 
-
-
-
 ---
 ## 变量权重（重点）
 <br>
 
 
-在每一层都可以定义变量，但是各层的权重是不同的。api 层拥有最高的权重，
-其次是 testcase，最后是testsuite。
+在每一层都可以定义变量，但是各层的权重是不同的。`api` 层拥有最高的权重，
+其次是 `testcase`，最后是`testsuite`。
 即如果你已经在 api 层把一个常量赋值给了一个变量，
-那么即使你在 testcase 或者 testsuite 层再去给这个变量赋值，
+那么即使你在 `testcase` 或者 `testsuite` 层再去给这个变量赋值，
 也不会生效。
 
-我们可以看一下上面的脚本，我在 testcase 和 testsuite 中都有对 base_url 进行赋值，
-但是最后测试报告中的 base_url 是 testcase 里的。
+我们可以看一下上面的脚本，我在 `testcase` 和 `testsuite` 中都有对 `base_url` 进行赋值，
+但是最后测试报告中的 `base_url` 是 `testcase` 里的。
 
 官方关于变量权重的说明，在
 <a href="https://docs.httprunner.org/user/concepts/#variables-priority" target="_blank">这里
@@ -247,8 +244,109 @@ body
 ## 数据驱动
 <br>
 
-HttpRunner 中建议使用的数据文件是 CSV 
+`HttpRunner` 中建议使用的数据文件是 `CSV` 
 
+以上面 `mock` 的接口为例
 
+我们在 `data.csv` 文件中写入如下数据:
+```
+name,age,address,salary
+noel,15,1,5000
+张三,25,北京,8000
+```
 
+那么我们的脚本就需要做如下变动：
+
+1.`api` 层不需要做改动
+
+2.`testcase` 层做如下改动：
+
+&emsp; &nbsp; 去除在这一层对变量(csv文件中包含了的变量)的赋值
+
+```shell
+config:
+    name: "demo testcase"
+    base_url: "http://127.0.0.1:8000"
+
+teststeps:
+-
+    name: demo testcase
+    api: api/demo_api.yml
+    extract:
+        - msg: content.msg
+    validate:
+        - eq: ["status_code", 200]
+```
+
+3.`testsuite` 层做如下改动：
+
+&emsp; &nbsp; 新增 `parameters` 参数，使用 `-` 拼接 `csv` 文件中的第一行数据
+
+```shell
+config:
+    name: "demo testsuite"
+    base_url: "http://127.0.0.1:5000"
+
+testcases:
+-
+    name: call demo with api data
+    testcase: testcases/demo_testcase.yml
+    parameters:
+        name-age-address-salary: ${P(data/data.csv)}
+```
+
+大工告成，再次执行上面的命令，此时就会跑两次这个接口
+
+---
+## 自定义函数
 <br>
+
+因为 httprunner 规范了太多，以及使用 yaml 文件来维护用例，
+使得我们的自由度降低很多，为了弥补这一缺点，
+作者留下了 `debugtalk.py` 文件，方便我们自定义参数
+
+我们以一个随机生成名字的函数举例说明如何自定义函数以及调用
+
+首先编辑 `debugtalk.py` 文件
+```python
+import random
+
+def get_name():
+    """
+    随机生成一个 name 
+    """
+    data = []
+    for i in range(6):
+        data.append(random.choice('1234567890qwertyuiopasdfghjklzxcvbnm'))
+    return ''.join(data)
+```
+
+调用时建议写在 `testcase` 层，或者 `csv` 文件中，二选一
+
+写在 `testcase` 层：
+```shell
+config:
+    name: "demo testcase"
+    base_url: "http://127.0.0.1:8000"
+
+teststeps:
+-
+    name: demo testcase
+    api: api/demo_api.yml
+    variables:
+        name: ${get_name()}
+    extract:
+        - msg: content.msg
+    validate:
+        - eq: ["status_code", 200]
+```
+
+写在 `csv` 文件中
+
+```
+name,age,address,salary
+${get_name()},15,1,5000
+${get_name()},25,北京,8000
+```
+---
+全文完~
