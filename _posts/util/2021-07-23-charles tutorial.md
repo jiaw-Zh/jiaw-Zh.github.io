@@ -20,17 +20,17 @@ toc: true
 
 ## 安装
 
-去 <a href='https://www.charlesproxy.com/download/' target="_blank">官方下载页</a> 根据你的操作下载对应的安装包，然后一路下一步完成安装即可。
+去 <a href='https://www.charlesproxy.com/download/' target="_blank">官方下载页</a> 根据你的操作系统下载对应的安装包，然后一路下一步完成安装即可。
 
-小彩蛋：
+**小彩蛋：**获取专业版 Charles
 
-<a href='https://www.zzzmode.com/mytools/charles/' target="_blank">破解1</a>
+<a href='https://www.zzzmode.com/mytools/charles/' target="_blank">方法1</a>
 
-<a href='https://goplay.space/#3K2iuH9cREz' target="_blank">破解2</a>
+<a href='https://goplay.space/#3K2iuH9cREz' target="_blank">方法2</a>
 
-<a href='https://goplay.tools/snippet/3K2iuH9cREz' target="_blank">破解2</a>
+<a href='https://goplay.tools/snippet/3K2iuH9cREz' target="_blank">方法3</a>
 
-破解2和3需要修改第19行的用户名，然后点击 run
+方法2和3需要修改第19行的用户名，然后点击 run
 
 ## 使用
 
@@ -38,5 +38,5 @@ toc: true
 
 ### 自定义响应
 
-
+<br>
 未完待续~
