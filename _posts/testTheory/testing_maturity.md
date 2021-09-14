@@ -2,7 +2,7 @@
 layout: post
 title:  "五个级别的测试成熟度"
 date:   2021-09-14 09:58:00 +0800
-categories: Shell
+categories: testTheory
 tags: 测试理论 2021
 ---
 
