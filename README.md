@@ -1,2 +1,2 @@
 # My Blog
-site:blog.noel-zhang.work
+site:[https://blog.noel-zhang.work](https://blog.noel-zhang.work)
