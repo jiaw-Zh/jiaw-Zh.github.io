@@ -24,13 +24,13 @@ toc: true
 
 点击顶部的“参数设置”，在打开的窗口中，点击“v2rayN设置”，再勾选“允许来自局域网的连接”，然后点击“确定”。
 
-<img src="/img/v2rayN.PNG" alt="开启局域网代理">
+<img src="/img/util/switch/v2rayN.PNG" alt="开启局域网代理">
 
 ### 获取代理端口
 
 在完成上一步的操作之后，我们就可以在软件的下面看到 http 代理的端口信息了，这里是 `10809`，记住它，我们将在下面的步骤中使用它。
 
-<img src="/img/v2rayN-port.PNG" alt="获取端口">
+<img src="/img/util/switch/v2rayN-port.PNG" alt="获取端口">
 
 ### 获取本机局域网 IP
 
