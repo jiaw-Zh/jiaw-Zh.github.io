@@ -33,7 +33,7 @@ switch 要和提供代理服务的 v2rayN 在同一个局域网中！
 
 在完成上一步的操作之后，我们就可以在软件的下面看到 http 代理的端口信息了，这里是 `10809`，记住它，我们将在下面的步骤中使用它。
 
-<img src="/img/util/switch/v2rayN-port.png" alt="获取端口">
+<img src="/img/util/switch/v2rayN_port.png" alt="获取端口">
 
 ### 获取本机局域网 IP
 
@@ -73,4 +73,4 @@ switch 要和提供代理服务的 v2rayN 在同一个局域网中！
 
 <img src="/img/util/switch/setting4.jpg" alt="填入代理">
 
-enjoy it!
+ENJOY it!
