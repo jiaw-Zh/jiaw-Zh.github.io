@@ -9,6 +9,8 @@ toc: true
 
 > GitBook 现在已经发展成了一个商业公司，但是它的旧版本依然在互联网上为我们提供免费服务。
 
+> 别用 ~~gitbook~~ 了，用 [mdbook](https://github.com/rust-lang/mdBook) 吧！
+
 ## 介绍
 
 GitBook 是一个使用 Git 和 Markdown 来构建书籍的工具。它可以将你的书输出很多格式：PDF，ePub，mobi，或者输出为静态网页。
