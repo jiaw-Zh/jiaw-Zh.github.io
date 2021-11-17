@@ -22,7 +22,7 @@ toc: true
 
 去 <a href='https://www.charlesproxy.com/download/' target="_blank">官方下载页</a> 根据你的操作系统下载对应的安装包，然后一路下一步完成安装即可。
 
-**小彩蛋：**获取专业版 Charles
+**小彩蛋：** 获取专业版 Charles
 
 <a href='https://www.zzzmode.com/mytools/charles/' target="_blank">方法1</a>
 
