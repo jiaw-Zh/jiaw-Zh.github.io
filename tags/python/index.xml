@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Noel&#39;s Blog</title>
+    <link>https://blog.noel-zhang.work/tags/python/</link>
+    <description>Recent content in Python on Noel&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 21 Feb 2021 10:52:00 +0800</lastBuildDate><atom:link href="https://blog.noel-zhang.work/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>修改 Python pip 源为国内镜像</title>
+      <link>https://blog.noel-zhang.work/post/python/2021-02-21-%E6%9B%B4%E6%94%B9pypi%E6%BA%90/</link>
+      <pubDate>Sun, 21 Feb 2021 10:52:00 +0800</pubDate>
+      
+      <guid>https://blog.noel-zhang.work/post/python/2021-02-21-%E6%9B%B4%E6%94%B9pypi%E6%BA%90/</guid>
+      <description>换完 pip 速度嗖嗖的~ 当我们在终端输入 pip install selenium 时发生了什么？ pip 是 Python 的包管理器 pypi 的命令，当我们运行 pip 命令时，首先会去 pypi 源搜索有没有对应的包， 然后进行</description>
+    </item>
+    
+  </channel>
+</rss>

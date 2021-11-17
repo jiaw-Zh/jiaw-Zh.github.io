@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>利用 v2ray 的局域网连接功能为 switch 提供代理服务 - Noel&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Noel" /><meta name="description" content="巴西区我来啦~" /><meta name="keywords" content="noel, blog, tester" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.89.2 with theme even" />
+
+
+<link rel="canonical" href="https://blog.noel-zhang.work/post/util/%E5%88%A9%E7%94%A8v2ray%E7%9A%84%E5%B1%80%E5%9F%9F%E7%BD%91%E8%BF%9E%E6%8E%A5%E5%8A%9F%E8%83%BD%E4%B8%BAswitch%E6%8F%90%E4%BE%9B%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="利用 v2ray 的局域网连接功能为 switch 提供代理服务" />
+<meta property="og:description" content="巴西区我来啦~" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.noel-zhang.work/post/util/%E5%88%A9%E7%94%A8v2ray%E7%9A%84%E5%B1%80%E5%9F%9F%E7%BD%91%E8%BF%9E%E6%8E%A5%E5%8A%9F%E8%83%BD%E4%B8%BAswitch%E6%8F%90%E4%BE%9B%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-11-09T16:04:00+08:00" />
+<meta property="article:modified_time" content="2021-11-09T16:04:00+08:00" />
+
+<meta itemprop="name" content="利用 v2ray 的局域网连接功能为 switch 提供代理服务">
+<meta itemprop="description" content="巴西区我来啦~"><meta itemprop="datePublished" content="2021-11-09T16:04:00+08:00" />
+<meta itemprop="dateModified" content="2021-11-09T16:04:00+08:00" />
+<meta itemprop="wordCount" content="793">
+<meta itemprop="keywords" content="2021," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="利用 v2ray 的局域网连接功能为 switch 提供代理服务"/>
+<meta name="twitter:description" content="巴西区我来啦~"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Noel&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Noel&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">利用 v2ray 的局域网连接功能为 switch 提供代理服务</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-11-09 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%B7%A5%E5%85%B7/"> 工具 </a>
+            </div>
+          <span class="more-meta"> 约 793 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#前提">前提</a></li>
+        <li><a href="#开启局域网代理">开启局域网代理</a></li>
+        <li><a href="#获取代理端口">获取代理端口</a></li>
+        <li><a href="#获取本机局域网-ip">获取本机局域网 IP</a></li>
+        <li><a href="#设置-switch-的代理">设置 switch 的代理</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>最近入手了一台日版 switch，可是因为众所周知的网络原因，eshop 无法直接访问，网络问题也基本上是每一个海外版主机玩家必须要面对的问题，除非你是卡带党（那不如买国行）。</p>
+<p>在网上搜索了一下，大多数都是建议买游戏加速器，可这样一来不就浪费了我自己的梯子吗？但是在看了一些加速器的使用方法之后我突然意识到，这好像就是搞了一个局域网代理，那我正在用的 v2rayN 也能提供这个服务啊。</p>
+<p>于是我就想到了这个方法，可以让我的 switch 在 v2ray 的局域网中获得代理服务。</p>
+<p>实测，无论是 Windows、MacOS、Android 还是 iOS，目前各个客户端都是支持开启局域网连接的。</p>
+<p>这里以 Windows 为例，我们先来看看如何使用 v2rayN 开启局域网连接。</p>
+<h2 id="前提">前提</h2>
+<p>switch 要和提供代理服务的 v2rayN 在同一个局域网中！</p>
+<h2 id="开启局域网代理">开启局域网代理</h2>
+<p>点击顶部的“参数设置”，在打开的窗口中，点击“v2rayN设置”，再勾选“允许来自局域网的连接”，然后点击“确定”。</p>
+<p><img src="/img/util/switch/v2rayN.png" alt="开启局域网代理"></p>
+<h2 id="获取代理端口">获取代理端口</h2>
+<p>在完成上一步的操作之后，我们就可以在软件的下面看到 http 代理的端口信息了，这里是 <code>10809</code>，记住它，我们将在下面的步骤中使用它。</p>
+<p><img src="/img/util/switch/v2rayN_port.png" alt="获取端口"></p>
+<h2 id="获取本机局域网-ip">获取本机局域网 IP</h2>
+<p>这个打开命令行，执行一下 <code>ipconfig</code> 即可获取。</p>
+<p>比如我是使用的有线连接，那么我的局域网 IP 就是下面的 IPv4 地址：192.168.0.104</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">以太网适配器 以太网:
+
+   连接特定的 DNS 后缀 . . . . . . . :
+   本地链接 IPv6 地址. . . . . . . . : fe80::7553:42d4:ca30:aab1%8
+   IPv4 地址 . . . . . . . . . . . . : 192.168.0.104
+   子网掩码  . . . . . . . . . . . . : 255.255.255.0
+   默认网关. . . . . . . . . . . . . : 192.168.110.252
+</code></pre></td></tr></table>
+</div>
+</div><p>剩下的操作就都是在 switch 完成啦</p>
+<h2 id="设置-switch-的代理">设置 switch 的代理</h2>
+<p>在首页点击“设置”，选择“互联网”，点击“互联网设置”，选择已连接的网络，点击“更改设置”，启用“代理服务器设置”，填入获取的代理服务器地址和端口，点击“保存”。</p>
+<p>打开设置，选择“互联网”，点击“互联网设置”</p>
+<p><img src="/img/util/switch/setting1.jpg" alt="打开设置"></p>
+<p>点击已连接的网络</p>
+<p><img src="/img/util/switch/setting2.jpg" alt="选择网络"></p>
+<p>点击更改设置</p>
+<p><img src="/img/util/switch/setting3.jpg" alt="更改设置"></p>
+<p>启用“代理服务器设置”，填入获取的代理服务器地址和端口，点击“保存”</p>
+<p><img src="/img/util/switch/setting4.jpg" alt="填入代理"></p>
+<p>ENJOY it!</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Noel</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-11-09
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/2021/">2021</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/algorithm/2021-11-04-%E5%88%86%E5%87%BA%E5%B0%BD%E5%8F%AF%E8%83%BD%E5%A4%A7%E7%9A%84%E9%9D%A2%E7%A7%AF%E7%9A%84%E6%96%B9%E5%9D%97/">
+            <span class="next-text nav-default">矩形土地均匀分成方块，分出的方块面积尽可能大</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:zjw5734@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/jiaw-Zh" class="iconfont icon-github" title="github"></a>
+  <a href="https://blog.noel-zhang.work/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>Noel</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

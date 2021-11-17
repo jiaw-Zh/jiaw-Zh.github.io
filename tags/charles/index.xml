@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Charles&#39; on Noel&#39;s Blog</title>
+    <link>https://blog.noel-zhang.work/tags/charles/</link>
+    <description>Recent content in Charles&#39; on Noel&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 23 Jul 2021 16:25:00 +0800</lastBuildDate><atom:link href="https://blog.noel-zhang.work/tags/charles/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Charles 使用教程</title>
+      <link>https://blog.noel-zhang.work/post/util/2021-07-23-charles-tutorial/</link>
+      <pubDate>Fri, 23 Jul 2021 16:25:00 +0800</pubDate>
+      
+      <guid>https://blog.noel-zhang.work/post/util/2021-07-23-charles-tutorial/</guid>
+      <description>和 fiddler 同样强大、全能的抓包工具 主要功能 支持多操作系统 网络抓包（包括 HTTPS ) 过滤请求 模拟弱网 安装 去 官方下载页 根据你的操作系统下载对应的安装包，然后一</description>
+    </item>
+    
+  </channel>
+</rss>

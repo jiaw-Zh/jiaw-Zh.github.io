@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jmeter on Noel&#39;s Blog</title>
+    <link>https://blog.noel-zhang.work/tags/jmeter/</link>
+    <description>Recent content in Jmeter on Noel&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 29 Jun 2021 10:52:00 +0800</lastBuildDate><atom:link href="https://blog.noel-zhang.work/tags/jmeter/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jmeter 可用的一些 BeanShell 脚本</title>
+      <link>https://blog.noel-zhang.work/post/apitest/2021-06-29-jmeter_script/</link>
+      <pubDate>Tue, 29 Jun 2021 10:52:00 +0800</pubDate>
+      
+      <guid>https://blog.noel-zhang.work/post/apitest/2021-06-29-jmeter_script/</guid>
+      <description>一些 Jmeter 中 BeanShell PreProcessor 可用的脚本 判断文件中的某个参数是否传来空值，常用来判断时间戳和随机值 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 import java.util.Random; import</description>
+    </item>
+    
+    <item>
+      <title>关于使用 Jmeter 进行压力测试</title>
+      <link>https://blog.noel-zhang.work/post/apitest/2021-03-25-%E4%BD%BF%E7%94%A8jmeter%E8%BF%9B%E8%A1%8C%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/</link>
+      <pubDate>Thu, 25 Mar 2021 10:52:00 +0800</pubDate>
+      
+      <guid>https://blog.noel-zhang.work/post/apitest/2021-03-25-%E4%BD%BF%E7%94%A8jmeter%E8%BF%9B%E8%A1%8C%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/</guid>
+      <description>记录使用 Jmeter 进行压测的一些关注点 分布式压测 配置文件 使用 Jmeter 压测时，压力机一般是部署在 Linux 上的， 如果是分布式压测，需要修改 master 和 slave 机器上的 Jmeterpath/bin 目录下的 jmeter.properties</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>curl on Noel&#39;s Blog</title>
+    <link>https://blog.noel-zhang.work/tags/curl/</link>
+    <description>Recent content in curl on Noel&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 02 Apr 2021 16:25:00 +0800</lastBuildDate><atom:link href="https://blog.noel-zhang.work/tags/curl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>一个小巧的接口测试工具: CURL</title>
+      <link>https://blog.noel-zhang.work/post/apitest/2021-04-02-%E4%B8%80%E4%B8%AA%E5%B0%8F%E5%B7%A7%E7%9A%84%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7-curl/</link>
+      <pubDate>Fri, 02 Apr 2021 16:25:00 +0800</pubDate>
+      
+      <guid>https://blog.noel-zhang.work/post/apitest/2021-04-02-%E4%B8%80%E4%B8%AA%E5%B0%8F%E5%B7%A7%E7%9A%84%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7-curl/</guid>
+      <description>curl 是一个十分强大的命令行工具 curl 中的 c 表示 client，因此 curl 即客户端（client）的 URL 工具。 curl 是一个十分强大的命令行工具，如果熟练的话，完</description>
+    </item>
+    
+  </channel>
+</rss>

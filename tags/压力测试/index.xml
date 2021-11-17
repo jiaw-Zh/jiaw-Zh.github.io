@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>压力测试 on Noel&#39;s Blog</title>
+    <link>https://blog.noel-zhang.work/tags/%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/</link>
+    <description>Recent content in 压力测试 on Noel&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 25 Mar 2021 10:52:00 +0800</lastBuildDate><atom:link href="https://blog.noel-zhang.work/tags/%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于使用 Jmeter 进行压力测试</title>
+      <link>https://blog.noel-zhang.work/post/apitest/2021-03-25-%E4%BD%BF%E7%94%A8jmeter%E8%BF%9B%E8%A1%8C%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/</link>
+      <pubDate>Thu, 25 Mar 2021 10:52:00 +0800</pubDate>
+      
+      <guid>https://blog.noel-zhang.work/post/apitest/2021-03-25-%E4%BD%BF%E7%94%A8jmeter%E8%BF%9B%E8%A1%8C%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/</guid>
+      <description>记录使用 Jmeter 进行压测的一些关注点 分布式压测 配置文件 使用 Jmeter 压测时，压力机一般是部署在 Linux 上的， 如果是分布式压测，需要修改 master 和 slave 机器上的 Jmeterpath/bin 目录下的 jmeter.properties</description>
+    </item>
+    
+  </channel>
+</rss>

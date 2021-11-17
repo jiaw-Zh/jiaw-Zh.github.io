@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vscode on Noel&#39;s Blog</title>
+    <link>https://blog.noel-zhang.work/tags/vscode/</link>
+    <description>Recent content in vscode on Noel&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 16 Jun 2021 16:25:00 +0800</lastBuildDate><atom:link href="https://blog.noel-zhang.work/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>个人常用 VS Code 插件</title>
+      <link>https://blog.noel-zhang.work/post/util/2021-06-16-vscode_extension/</link>
+      <pubDate>Wed, 16 Jun 2021 16:25:00 +0800</pubDate>
+      
+      <guid>https://blog.noel-zhang.work/post/util/2021-06-16-vscode_extension/</guid>
+      <description>主要是做一个记录 VS Code 有多好用不用我多说了吧，直接进入正题 Chinese (Simplified) Language Pack for Visual Studio Code 中文简体语言包 虽然对于程序员来说英语能力也是很重要的，但是生产力工具</description>
+    </item>
+    
+  </channel>
+</rss>

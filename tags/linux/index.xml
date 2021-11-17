@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on Noel&#39;s Blog</title>
+    <link>https://blog.noel-zhang.work/tags/linux/</link>
+    <description>Recent content in linux on Noel&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 16 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.noel-zhang.work/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>你真的会用 tar 命令吗？</title>
+      <link>https://blog.noel-zhang.work/post/linux/2021-04-16-%E4%BD%A0%E7%9C%9F%E7%9A%84%E4%BC%9A%E7%94%A8tar%E5%91%BD%E4%BB%A4%E5%90%97/</link>
+      <pubDate>Fri, 16 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.noel-zhang.work/post/linux/2021-04-16-%E4%BD%A0%E7%9C%9F%E7%9A%84%E4%BC%9A%E7%94%A8tar%E5%91%BD%E4%BB%A4%E5%90%97/</guid>
+      <description>曾经稀里糊涂的用了，现在来搞明白吧！ tar 这个命令使用频率最高的方法可能就是下面这两个了： 1 2 $tar -czvf example.tar.gz ~/example # 压缩 example 文件为 example.tar.gz $tar -xzvf ~/example.tar.gz # 解压缩 example.tar.gz 到当前目录</description>
+    </item>
+    
+  </channel>
+</rss>

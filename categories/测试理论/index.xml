@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>测试理论 on Noel&#39;s Blog</title>
+    <link>https://blog.noel-zhang.work/categories/%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA/</link>
+    <description>Recent content in 测试理论 on Noel&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 14 Sep 2021 09:58:00 +0800</lastBuildDate><atom:link href="https://blog.noel-zhang.work/categories/%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>五个级别的测试成熟度</title>
+      <link>https://blog.noel-zhang.work/post/testtheory/2021-09-14-testing_maturity/</link>
+      <pubDate>Tue, 14 Sep 2021 09:58:00 +0800</pubDate>
+      
+      <guid>https://blog.noel-zhang.work/post/testtheory/2021-09-14-testing_maturity/</guid>
+      <description>什么是测试？测试到什么地步才是尽头？ 此成熟度理论由 Boris Beizer 提出（他自己叫阶段，不过现在称为级别） 级别0 - “测试和调试没有区别。”除了支持调试之外</description>
+    </item>
+    
+  </channel>
+</rss>
