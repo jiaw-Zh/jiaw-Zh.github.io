@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>为 Windows PowerShell 设置 Alias （命令别名） - Noel&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Noel" /><meta name="description" content="alias 用的好真的可以为所欲为啊 啰里啰唆可以直接跳过的一段 最近黑苹果挂了，暂时用回 Windows，发现想要在 Windows 用 alias 还有点难度， 网上搜索下来大多数都" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.89.2 with theme even" />
+
+
+<link rel="canonical" href="https://blog.noel-zhang.work/post/windows/powershell_alias/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="为 Windows PowerShell 设置 Alias （命令别名）" />
+<meta property="og:description" content="alias 用的好真的可以为所欲为啊 啰里啰唆可以直接跳过的一段 最近黑苹果挂了，暂时用回 Windows，发现想要在 Windows 用 alias 还有点难度， 网上搜索下来大多数都" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.noel-zhang.work/post/windows/powershell_alias/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-06-15T16:25:00+08:00" />
+<meta property="article:modified_time" content="2021-06-15T16:25:00+08:00" />
+
+<meta itemprop="name" content="为 Windows PowerShell 设置 Alias （命令别名）">
+<meta itemprop="description" content="alias 用的好真的可以为所欲为啊 啰里啰唆可以直接跳过的一段 最近黑苹果挂了，暂时用回 Windows，发现想要在 Windows 用 alias 还有点难度， 网上搜索下来大多数都"><meta itemprop="datePublished" content="2021-06-15T16:25:00+08:00" />
+<meta itemprop="dateModified" content="2021-06-15T16:25:00+08:00" />
+<meta itemprop="wordCount" content="1113">
+<meta itemprop="keywords" content="2021,alias," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="为 Windows PowerShell 设置 Alias （命令别名）"/>
+<meta name="twitter:description" content="alias 用的好真的可以为所欲为啊 啰里啰唆可以直接跳过的一段 最近黑苹果挂了，暂时用回 Windows，发现想要在 Windows 用 alias 还有点难度， 网上搜索下来大多数都"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Noel&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Noel&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">为 Windows PowerShell 设置 Alias （命令别名）</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-06-15 </span>
+        <div class="post-category">
+            <a href="/categories/powershell/"> PowerShell </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#啰里啰唆可以直接跳过的一段">啰里啰唆可以直接跳过的一段</a></li>
+    <li><a href="#正文开始">正文开始</a>
+      <ul>
+        <li><a href="#探索过程及原理概述">探索过程及原理概述</a></li>
+      </ul>
+    </li>
+    <li><a href="#最后总结">最后总结</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>alias 用的好真的可以为所欲为啊</p>
+</blockquote>
+<h1 id="啰里啰唆可以直接跳过的一段">啰里啰唆可以直接跳过的一段</h1>
+<p>最近黑苹果挂了，暂时用回 Windows，发现想要在 Windows 用 alias 还有点难度，
+网上搜索下来大多数都是关于 cmd 下的方法，作为一个紧跟潮流的测试人，
+当然要用 PowerShell 啦！</p>
+<p>一番百度之下(这个习惯很不好，尽量谷歌~)，竟然也成功找到了相关设置方法。</p>
+<p>ps.其实是因为我直接搜的：Windows下alias的配置，关键字不对害死人啊</p>
+<p>so.本文主要内容转载自 
+<a href='https://blog.vvzero.com/2019/07/22/set-user-alias-for-windows-PowerShell/' target="_blank"> blog.vvzero.com </a></p>
+<p>特别巧的是我一开始也是用的 <code>cmder</code>，然后启动时间太长无法忍受，无意中结识 <code>Windows Terminal </code>，
+深得我心，微软大法好啊。</p>
+<h1 id="正文开始">正文开始</h1>
+<h2 id="探索过程及原理概述">探索过程及原理概述</h2>
+<p>如果搜索关键词 <code>windows powershell set user alias</code>，通常谷歌会给出<a href='https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/set-alias?view=powershell-6' target='_blank'>微软官方文档</a>，但是这个文档只是告诉我们如何在脚本里面设置临时的别名，如果要设置永久别名，该怎么办？实际上，“别名”这种东西，也就是 <code>alias</code>，几乎所有的脚本语言，都没有所谓的“永久别名”(Permanent alias)，我们使用 Linux bash 、Cmder 之类的脚本工具，打开终端时，系统会默认执行一个脚本文件（ bash 是用户目录下的 <code>.bashrc</code>，Cmder 是 <code>config/user_aliases.cmd</code> ），而这样的脚本文件里，就包含了别名的定义。这也是为什么，我们在 Linux 类系统中，修改 <code>.bashrc</code> 后，必须要重新登出登录、或者 <code>source .bashrc</code> 的原因了。</p>
+<p>所以，我们只要修改 <code>Windows Powershell</code> 启动时执行的文件就行了。很多论坛里面说，默认执行的脚本是 <code>$Home\Documents\profile.ps1</code> ，也就是 <code>C:\Users\你的用户名\Documents\profile.ps1</code> ，但是这并不正确，最好的方式是，先启动 <code>PowerShell</code> ，再执行 <code>echo $profile</code>，这样得到的文件路径，才是 <code>PowerShell</code> 的默认执行文件路径。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">PS D:\Code&gt; echo $profile
+C:\Users\username\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+</code></pre></td></tr></table>
+</div>
+</div><p>然后，创建这个文件就好啦。</p>
+<p>在文件里面，写上别名设置的语句。再一次注意，假如你的别名指代的命令含有空格，就不可以使用 <code>New-Alias</code> 命令，因为它不能带空格，即使你把指代的命令用引号括起来也没用。那怎么办呢？继续谷歌，原来，正确姿势是用 <code>function</code> ，也就是，我们把自己要定义的指令，定义为一个函数，就行啦。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"># function 别名{原命令}
+function blog{bundler exec jekyll s}
+</code></pre></td></tr></table>
+</div>
+</div><p>保存文件，重新启动 PowerShell 以后，不出意外，应该会报一个 <code>File xxxxxxx\Microsoft.PowerShell_profile.ps1 cannot be loaded because running scripts is disabled on this system.</code> 
+根据 <a href='https://tecadmin.net/powershell-running-scripts-is-disabled-system/' target='_blank'>此链接</a>，出现这种情况，是因为 Windows 系统为了防止恶意脚本自动执行，故默认不允许自动运行脚本。所以，在确定自己有能力把控的情况下，<strong>以管理员身份</strong>，在 <code>PowerShell</code> 中执行 <code>Set-ExecutionPolicy RemoteSigned</code> ，即可。</p>
+<p>再次重启 <code>PowerShell</code> ，应该可以发现，自定义别名已经生效了。</p>
+<h1 id="最后总结">最后总结</h1>
+<p>如果你想为自己的 Windows PowerShell 设置永久的命令别名 (Alias)，可以按以下步骤设置：</p>
+<ul>
+<li>打开 <code>PowerShell</code> ，运行 <code>echo $profile</code>，会输出一个文件路径。创建这个文件。</li>
+<li>打开刚创建的文件，按以下格式设置多条别名：<code>function 别名 { 原命令 }</code></li>
+<li>以管理员身份打开 <code>PowerShell</code>，执行 <code>Set-ExecutionPolicy RemoteSigned</code>。</li>
+<li>重启 <code>PowerShell</code> ，就可以愉快的玩耍啦。</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Noel</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-06-15
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/2021/">2021</a>
+          <a href="/tags/alias/">alias</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/first/">
+            <span class="next-text nav-default">修改 Python pip 源为国内镜像</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:zjw5734@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/jiaw-Zh" class="iconfont icon-github" title="github"></a>
+  <a href="https://blog.noel-zhang.work/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>Noel</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

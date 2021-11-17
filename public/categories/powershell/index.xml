@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PowerShell on Noel&#39;s Blog</title>
+    <link>https://blog.noel-zhang.work/categories/powershell/</link>
+    <description>Recent content in PowerShell on Noel&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 15 Jun 2021 16:25:00 +0800</lastBuildDate><atom:link href="https://blog.noel-zhang.work/categories/powershell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>为 Windows PowerShell 设置 Alias （命令别名）</title>
+      <link>https://blog.noel-zhang.work/post/windows/powershell_alias/</link>
+      <pubDate>Tue, 15 Jun 2021 16:25:00 +0800</pubDate>
+      
+      <guid>https://blog.noel-zhang.work/post/windows/powershell_alias/</guid>
+      <description>alias 用的好真的可以为所欲为啊 啰里啰唆可以直接跳过的一段 最近黑苹果挂了，暂时用回 Windows，发现想要在 Windows 用 alias 还有点难度， 网上搜索下来大多数都</description>
+    </item>
+    
+  </channel>
+</rss>

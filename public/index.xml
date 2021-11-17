@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Noel&#39;s Blog</title>
+    <link>https://blog.noel-zhang.work/</link>
+    <description>Recent content on Noel&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 15 Jun 2021 16:25:00 +0800</lastBuildDate><atom:link href="https://blog.noel-zhang.work/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>https://blog.noel-zhang.work/about/</link>
+      <pubDate>Sat, 13 Nov 2021 15:40:53 +0800</pubDate>
+      
+      <guid>https://blog.noel-zhang.work/about/</guid>
+      <description>理科生，本科却阴差阳错选择了一个偏文偏体育的特殊教育专业。经历了从一开始对本专业的不了解到了解，并想一直从事这个行业，再到实习后毅然决定转行</description>
+    </item>
+    
+    <item>
+      <title>为 Windows PowerShell 设置 Alias （命令别名）</title>
+      <link>https://blog.noel-zhang.work/post/windows/powershell_alias/</link>
+      <pubDate>Tue, 15 Jun 2021 16:25:00 +0800</pubDate>
+      
+      <guid>https://blog.noel-zhang.work/post/windows/powershell_alias/</guid>
+      <description>alias 用的好真的可以为所欲为啊 啰里啰唆可以直接跳过的一段 最近黑苹果挂了，暂时用回 Windows，发现想要在 Windows 用 alias 还有点难度， 网上搜索下来大多数都</description>
+    </item>
+    
+    <item>
+      <title>修改 Python pip 源为国内镜像</title>
+      <link>https://blog.noel-zhang.work/post/first/</link>
+      <pubDate>Sun, 21 Feb 2021 10:52:00 +0800</pubDate>
+      
+      <guid>https://blog.noel-zhang.work/post/first/</guid>
+      <description>当我们在终端输入 pip install selenium 时发生了什么？ pip 是 Python 的包管理器 pypi 的命令，当我们运行 pip 命令时，首先会去 pypi 源搜索有没有对应的包， 然后进行下载安装。 那么问题</description>
+    </item>
+    
+  </channel>
+</rss>

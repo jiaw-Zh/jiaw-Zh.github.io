@@ -1,0 +1,74 @@
+<?xml-stylesheet type="text/xsl" href="https://blog.noel-zhang.work/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://blog.noel-zhang.work/about/</loc>
+    <lastmod>2021-11-13T15:40:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.noel-zhang.work/tags/2021/</loc>
+    <lastmod>2021-06-15T16:25:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.noel-zhang.work/tags/alias/</loc>
+    <lastmod>2021-06-15T16:25:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.noel-zhang.work/categories/</loc>
+    <lastmod>2021-06-15T16:25:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.noel-zhang.work/</loc>
+    <lastmod>2021-06-15T16:25:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.noel-zhang.work/post/</loc>
+    <lastmod>2021-06-15T16:25:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.noel-zhang.work/categories/powershell/</loc>
+    <lastmod>2021-06-15T16:25:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.noel-zhang.work/tags/</loc>
+    <lastmod>2021-06-15T16:25:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.noel-zhang.work/post/windows/powershell_alias/</loc>
+    <lastmod>2021-06-15T16:25:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.noel-zhang.work/post/first/</loc>
+    <lastmod>2021-02-21T10:52:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+</urlset>
