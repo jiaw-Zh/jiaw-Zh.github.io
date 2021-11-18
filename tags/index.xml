@@ -6,13 +6,31 @@
     <description>Recent content in Tags on Noel&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 09 Nov 2021 16:04:00 +0800</lastBuildDate><atom:link href="https://blog.noel-zhang.work/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Nov 2021 10:47:42 +0800</lastBuildDate><atom:link href="https://blog.noel-zhang.work/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2021</title>
       <link>https://blog.noel-zhang.work/tags/2021/</link>
-      <pubDate>Tue, 09 Nov 2021 16:04:00 +0800</pubDate>
+      <pubDate>Thu, 18 Nov 2021 10:47:42 +0800</pubDate>
       
       <guid>https://blog.noel-zhang.work/tags/2021/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github</title>
+      <link>https://blog.noel-zhang.work/tags/github/</link>
+      <pubDate>Thu, 18 Nov 2021 10:47:42 +0800</pubDate>
+      
+      <guid>https://blog.noel-zhang.work/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>https://blog.noel-zhang.work/tags/hugo/</link>
+      <pubDate>Thu, 18 Nov 2021 10:47:42 +0800</pubDate>
+      
+      <guid>https://blog.noel-zhang.work/tags/hugo/</guid>
       <description></description>
     </item>
     

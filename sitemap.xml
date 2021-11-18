@@ -2,6 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.noel-zhang.work/tags/2021/</loc>
+    <lastmod>2021-11-18T10:47:42+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.noel-zhang.work/categories/</loc>
+    <lastmod>2021-11-18T10:47:42+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.noel-zhang.work/tags/github/</loc>
+    <lastmod>2021-11-18T10:47:42+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.noel-zhang.work/tags/hugo/</loc>
+    <lastmod>2021-11-18T10:47:42+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.noel-zhang.work/</loc>
+    <lastmod>2021-11-18T10:47:42+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.noel-zhang.work/post/</loc>
+    <lastmod>2021-11-18T10:47:42+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.noel-zhang.work/tags/</loc>
+    <lastmod>2021-11-18T10:47:42+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.noel-zhang.work/post/util/%E4%BD%BF%E7%94%A8hugogithubpages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2021-11-18T10:47:42+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.noel-zhang.work/categories/%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2021-11-18T10:47:42+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.noel-zhang.work/about/</loc>
     <lastmod>2021-11-13T15:40:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -9,49 +72,7 @@
   </url>
   
   <url>
-    <loc>https://blog.noel-zhang.work/tags/2021/</loc>
-    <lastmod>2021-11-09T16:04:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.noel-zhang.work/categories/</loc>
-    <lastmod>2021-11-09T16:04:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.noel-zhang.work/</loc>
-    <lastmod>2021-11-09T16:04:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.noel-zhang.work/post/</loc>
-    <lastmod>2021-11-09T16:04:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.noel-zhang.work/tags/</loc>
-    <lastmod>2021-11-09T16:04:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.noel-zhang.work/post/util/%E5%88%A9%E7%94%A8v2ray%E7%9A%84%E5%B1%80%E5%9F%9F%E7%BD%91%E8%BF%9E%E6%8E%A5%E5%8A%9F%E8%83%BD%E4%B8%BAswitch%E6%8F%90%E4%BE%9B%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1/</loc>
-    <lastmod>2021-11-09T16:04:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.noel-zhang.work/categories/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2021-11-09T16:04:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>github on Noel&#39;s Blog</title>
+    <link>https://blog.noel-zhang.work/tags/github/</link>
+    <description>Recent content in github on Noel&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 18 Nov 2021 10:47:42 +0800</lastBuildDate><atom:link href="https://blog.noel-zhang.work/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 Hugo &#43; GitHub Pages 搭建免费静态博客</title>
+      <link>https://blog.noel-zhang.work/post/util/%E4%BD%BF%E7%94%A8hugogithubpages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Thu, 18 Nov 2021 10:47:42 +0800</pubDate>
+      
+      <guid>https://blog.noel-zhang.work/post/util/%E4%BD%BF%E7%94%A8hugogithubpages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/</guid>
+      <description>告别 Jekyll，使用 Hugo 加 GitHub Pages 搭建一个免费静态博客吧！ 因为经常在浏览博客的时候看到博客的地址是 github.io 后缀，出于好奇心就打开这个网址看了下，这是与</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,7 +6,16 @@
     <description>Recent content in 2021 on Noel&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 09 Nov 2021 16:04:00 +0800</lastBuildDate><atom:link href="https://blog.noel-zhang.work/tags/2021/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Nov 2021 10:47:42 +0800</lastBuildDate><atom:link href="https://blog.noel-zhang.work/tags/2021/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 Hugo &#43; GitHub Pages 搭建免费静态博客</title>
+      <link>https://blog.noel-zhang.work/post/util/%E4%BD%BF%E7%94%A8hugogithubpages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Thu, 18 Nov 2021 10:47:42 +0800</pubDate>
+      
+      <guid>https://blog.noel-zhang.work/post/util/%E4%BD%BF%E7%94%A8hugogithubpages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/</guid>
+      <description>告别 Jekyll，使用 Hugo 加 GitHub Pages 搭建一个免费静态博客吧！ 因为经常在浏览博客的时候看到博客的地址是 github.io 后缀，出于好奇心就打开这个网址看了下，这是与</description>
+    </item>
+    
     <item>
       <title>利用 v2ray 的局域网连接功能为 switch 提供代理服务</title>
       <link>https://blog.noel-zhang.work/post/util/%E5%88%A9%E7%94%A8v2ray%E7%9A%84%E5%B1%80%E5%9F%9F%E7%BD%91%E8%BF%9E%E6%8E%A5%E5%8A%9F%E8%83%BD%E4%B8%BAswitch%E6%8F%90%E4%BE%9B%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1/</link>

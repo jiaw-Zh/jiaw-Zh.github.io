@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>使用 Hugo &#43; GitHub Pages 搭建免费静态博客 - Noel&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Noel" /><meta name="description" content="告别 Jekyll，使用 Hugo 加 GitHub Pages 搭建一个免费静态博客吧！ 因为经常在浏览博客的时候看到博客的地址是 github.io 后缀，出于好奇心就打开这个网址看了下，这是与" /><meta name="keywords" content="noel, blog, tester" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.89.2 with theme even" />
+
+
+<link rel="canonical" href="https://blog.noel-zhang.work/post/util/%E4%BD%BF%E7%94%A8hugogithubpages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.cb68f97bc9cece255d217346d970e3c62623408634e500c330a62fadabbbe77c.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="使用 Hugo &#43; GitHub Pages 搭建免费静态博客" />
+<meta property="og:description" content="告别 Jekyll，使用 Hugo 加 GitHub Pages 搭建一个免费静态博客吧！ 因为经常在浏览博客的时候看到博客的地址是 github.io 后缀，出于好奇心就打开这个网址看了下，这是与" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.noel-zhang.work/post/util/%E4%BD%BF%E7%94%A8hugogithubpages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-11-18T10:47:42+08:00" />
+<meta property="article:modified_time" content="2021-11-18T10:47:42+08:00" />
+
+<meta itemprop="name" content="使用 Hugo &#43; GitHub Pages 搭建免费静态博客">
+<meta itemprop="description" content="告别 Jekyll，使用 Hugo 加 GitHub Pages 搭建一个免费静态博客吧！ 因为经常在浏览博客的时候看到博客的地址是 github.io 后缀，出于好奇心就打开这个网址看了下，这是与"><meta itemprop="datePublished" content="2021-11-18T10:47:42+08:00" />
+<meta itemprop="dateModified" content="2021-11-18T10:47:42+08:00" />
+<meta itemprop="wordCount" content="890">
+<meta itemprop="keywords" content="2021,hugo,github," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="使用 Hugo &#43; GitHub Pages 搭建免费静态博客"/>
+<meta name="twitter:description" content="告别 Jekyll，使用 Hugo 加 GitHub Pages 搭建一个免费静态博客吧！ 因为经常在浏览博客的时候看到博客的地址是 github.io 后缀，出于好奇心就打开这个网址看了下，这是与"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Noel&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Noel&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">使用 Hugo &#43; GitHub Pages 搭建免费静态博客</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-11-18 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%B7%A5%E5%85%B7/"> 工具 </a>
+            </div>
+          <span class="more-meta"> 约 890 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#hugo-的安装与基本使用">Hugo 的安装与基本使用</a></li>
+        <li><a href="#配合-github-pages-发布博客">配合 GitHub Pages 发布博客</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>告别 Jekyll，使用 Hugo 加 GitHub Pages 搭建一个免费静态博客吧！</p>
+</blockquote>
+<p>因为经常在浏览博客的时候看到博客的地址是 <code>github.io</code> 后缀，出于好奇心就打开这个网址看了下，这是与 <code>Github Pages</code> 的初次相遇。</p>
+<p>也刚好当时在准备跳槽，所以就顺手搭建了一个静态博客，写一些文章。</p>
+<p><code>Github Pages</code>推荐的博客生成工具是 <code>jekyll</code> ，所以一开始我也是选择了它，但是使用过程着实有些一言难尽，所以我就换了一个，这次是 <code>Hugo</code> 。</p>
+<h2 id="hugo-的安装与基本使用">Hugo 的安装与基本使用</h2>
+<p>关于 <a href="https://gohugo.io/">Hugo</a> 的安装，可以直接看<a href="https://gohugo.io/getting-started/quick-start/">官方文档</a>，也可以看这篇官方的<a href="https://www.gohugo.org/">翻译文章</a></p>
+<p>但是为什么已经有了上面的两个链接，我还要写这篇文章呢？当然不是为了水文，重点在于与 <code>GitHub Pages</code> 的配合上</p>
+<p><strong>使用 Hugo 的主要流程</strong></p>
+<ul>
+<li>安装 Hugo 主程序
+<ul>
+<li>推荐二进制安装，不需要 go 语言环境（这里看<a href="https://gohugo.io/getting-started/installing/">官方安装文档</a>比较好）</li>
+<li>关键点就是将下载的二进制文件加入环境变量</li>
+<li>安装完成后，在终端执行 <code>hugo version</code> 查看版本号</li>
+</ul>
+</li>
+<li>创建站点
+<ul>
+<li>在终端执行 <code>hugo new mysite</code> 创建一个新的站点</li>
+</ul>
+</li>
+<li>添加主题
+<ul>
+<li>主题可能会有自己的配置要求，这个主要看你选择什么主题，我选择了 <a href="https://github.com/olOwOlo/hugo-theme-even">even</a> 主题</li>
+</ul>
+</li>
+<li>创建文章
+<ul>
+<li>在终端执行 <code>hugo new posts/my-first-post.md</code> 创建一个新的文章</li>
+<li>可能你的主题会有不同的要求，比如我的主题就要求文章需要放在<code>post</code>目录下，所以我在终端执行 <code>hugo new post/my-first-post.md</code> 创建一个文章</li>
+</ul>
+</li>
+<li>生成与运行站点
+<ul>
+<li>在终端执行 <code>hugo</code> 命令，会在当前目录生成一个 <code>public</code> 目录，这个目录下的文件就是站点的静态文件</li>
+<li>在终端执行 <code>hugo server</code> 命令，就会启动 <code>Hugo</code> 服务，访问 <a href="http://localhost:1313/">http://localhost:1313/</a> 就会看到你的站点</li>
+</ul>
+</li>
+</ul>
+<p>上面的翻译文章与我的流程还是有一点出入的。</p>
+<h2 id="配合-github-pages-发布博客">配合 GitHub Pages 发布博客</h2>
+<p>到我的重头戏咯，无论是<a href="https://gohugo.io/getting-started/usage/#deploy-your-website">官方文档</a>还是翻译文档，他们与 <code>GitHub Pages</code> 配合的主要方式都是将 <code>pubilc</code> 目录里所有文件 push 到 <code>GitHub</code> 上，但是这就会有一个问题，<strong>你无法在任何地方更新文章了</strong>。</p>
+<p><strong>所以这里我的做法就是：</strong></p>
+<ul>
+<li>创建一个仓库
+<ul>
+<li>仓库命名为：<code>jiaw-Zh.github.io</code> （<code>jiaw-Zh</code> 替换为你的 <code>github</code> 用户名）</li>
+</ul>
+</li>
+<li>创建一个 <code>gh-pages</code> 分支
+<ul>
+<li>将 <code>public</code> 目录里的文件 <code>push</code> 到 <code>gh-pages</code> 分支上</li>
+</ul>
+</li>
+</ul>
+<p>配置 GitHub Pages 编译的分支，<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">官方说明</a></p>
+<ol>
+<li>打开 <code>GitHub</code> 仓库的 <code>Settings</code></li>
+<li>点击 <code>Pages</code></li>
+<li>找到 <code>Source</code></li>
+<li>选择 <code>gh-pages</code> 分支，路径不变</li>
+<li>点击 <code>Save</code></li>
+</ol>
+<p><a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site">自定义域名</a>，域名是要收费的，貌似和我们的文章主题不一致，但是谁让我有一个域名呢~</p>
+<ol>
+<li>打开 <code>GitHub</code> 仓库的 <code>Settings</code></li>
+<li>点击 <code>Pages</code></li>
+<li>找到 <code>Custom domain</code></li>
+<li>输入你的域名点击 <code>Save</code></li>
+<li>到你域名的 dns 服务商处，添加 <code>CNAME</code> 记录，指向 <code>jiaw-Zh.github.io</code>（替换为你自己的域名）</li>
+</ol>
+<p>下面是我的dns配置：</p>
+<img src='/img/util/dns.PNG'>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Noel</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-11-18
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/2021/">2021</a>
+          <a href="/tags/hugo/">hugo</a>
+          <a href="/tags/github/">github</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/util/%E5%88%A9%E7%94%A8v2ray%E7%9A%84%E5%B1%80%E5%9F%9F%E7%BD%91%E8%BF%9E%E6%8E%A5%E5%8A%9F%E8%83%BD%E4%B8%BAswitch%E6%8F%90%E4%BE%9B%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1/">
+            <span class="next-text nav-default">利用 v2ray 的局域网连接功能为 switch 提供代理服务</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:zjw5734@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/jiaw-Zh" class="iconfont icon-github" title="github"></a>
+  <a href="https://blog.noel-zhang.work/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>Noel</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
