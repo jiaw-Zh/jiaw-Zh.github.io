@@ -41,12 +41,31 @@ draft: false
 
 ## 配合 GitHub Pages 发布博客
 
-到我的重头戏咯，无论是[官方文档](https://gohugo.io/getting-started/usage/#deploy-your-website)还是翻译文档，他们与 `GitHub Pages` 配合的主要方式都是将 `pubilc` 目录里所有文件 push 到 `GitHub` 上，但是这就会有一个问题，你无法在任何地方更新文章了。
+到我的重头戏咯，无论是[官方文档](https://gohugo.io/getting-started/usage/#deploy-your-website)还是翻译文档，他们与 `GitHub Pages` 配合的主要方式都是将 `pubilc` 目录里所有文件 push 到 `GitHub` 上，但是这就会有一个问题，**你无法在任何地方更新文章了**。
 
 **所以这里我的做法就是：**
 
 - 创建一个仓库
-    - 仓库命名为：`coderzh.github.io` （`coderzh` 替换为你的 `github` 用户名）
+    - 仓库命名为：`jiaw-Zh.github.io` （`jiaw-Zh` 替换为你的 `github` 用户名）
 - 创建一个 `gh-pages` 分支
     - 将 `public` 目录里的文件 `push` 到 `gh-pages` 分支上
 
+配置 GitHub Pages 编译的分支，[官方说明](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+
+1. 打开 `GitHub` 仓库的 `Settings`
+2. 点击 `Pages`
+3. 找到 `Source`
+4. 选择 `gh-pages` 分支，路径不变
+5. 点击 `Save`
+
+[自定义域名](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)，域名是要收费的，貌似和我们的文章主题不一致，但是谁让我有一个域名呢~
+
+1. 打开 `GitHub` 仓库的 `Settings`
+2. 点击 `Pages`
+3. 找到 `Custom domain`
+4. 输入你的域名点击 `Save`
+5. 到你域名的 dns 服务商处，添加 `CNAME` 记录，指向 `jiaw-Zh.github.io`（替换为你自己的域名）
+
+下面是我的dns配置：
+
+<img src='/img/util/dns.PNG'>
