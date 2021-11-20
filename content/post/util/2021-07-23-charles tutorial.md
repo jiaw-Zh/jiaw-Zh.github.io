@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Charles 使用教程"
+title:  "Windows 版 Charles 简明使用教程"
 date:   2021-07-23 16:25:00 +0800
 categories: ['工具']
 tags:  ['2021',Charles','未完成']
@@ -9,9 +9,7 @@ toc: true
 
 > 和 `fiddler` 同样强大、全能的抓包工具
 
-
-
-## 主要功能
+## 主要特色
 
 - 支持多操作系统
 - 网络抓包（包括 `HTTPS` )
@@ -33,6 +31,11 @@ toc: true
 方法2和3需要修改第19行的用户名，然后点击 run
 
 ## 使用
+
+### 配置为系统代理
+
+顶部菜单 Proxy -> Windows Proxy -> 勾选
+
 
 ### 手机抓包设置
 
