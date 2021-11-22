@@ -1,9 +1,9 @@
 ---
 title:  "Windows 版 Charles 简明使用教程"
 date:   2021-07-23
-lastmod: 2021-11-21
+lastmod: 2021-11-22
 categories: ['工具']
-tags:  ['2021',Charles','未完成']
+tags:  ['2021',Charles']
 ---
 
 > 和 `fiddler` 同样强大、全能的抓包工具
@@ -12,7 +12,7 @@ tags:  ['2021',Charles','未完成']
 
 - 支持多操作系统
 - 网络抓包（包括 `HTTPS` )
-- 自定义响应（可用于mock）
+- 请求重定向
 
 ## 安装
 
@@ -103,10 +103,12 @@ tags:  ['2021',Charles','未完成']
 <img src='/img/charles/Charles4.png' alt='关闭弱网'>
 
 
-### 自定义响应
+### 请求重定向
 
 这里的有两个选择: Map Remote 、Map Local。
 
-<br>
+Map Remote：将请求重定向到另一个网址，设置方法：顶部菜单 Tools -> Map Remote
 
-未完待续~
+Map Local：将请求重定向到本地文件，设置方法：顶部菜单 Tools -> Map Local
+
+这两个功能挺好用的，但是基本打开页面就知道该怎么用了，所以也不做细讲。（如果你不会用，说明对于 HTTP 请求、响应的理解不够深入）
