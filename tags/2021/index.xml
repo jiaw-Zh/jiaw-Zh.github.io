@@ -62,12 +62,12 @@
     </item>
     
     <item>
-      <title>Charles 使用教程</title>
+      <title>Windows 版 Charles 简明使用教程</title>
       <link>https://blog.noel-zhang.work/post/util/2021-07-23-charles-tutorial/</link>
-      <pubDate>Fri, 23 Jul 2021 16:25:00 +0800</pubDate>
+      <pubDate>Fri, 23 Jul 2021 00:00:00 +0000</pubDate>
       
       <guid>https://blog.noel-zhang.work/post/util/2021-07-23-charles-tutorial/</guid>
-      <description>和 fiddler 同样强大、全能的抓包工具 主要功能 支持多操作系统 网络抓包（包括 HTTPS ) 过滤请求 模拟弱网 安装 去 官方下载页 根据你的操作系统下载对应的安装包，然后一</description>
+      <description>和 fiddler 同样强大、全能的抓包工具 主要特色 支持多操作系统 网络抓包（包括 HTTPS ) 请求重定向 安装 去 官方下载页 根据你的操作系统下载对应的安装包，然后一路下一</description>
     </item>
     
     <item>
