@@ -6,7 +6,25 @@
     <description>Recent content on Noel&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 18 Nov 2021 10:47:42 +0800</lastBuildDate><atom:link href="https://blog.noel-zhang.work/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 Jan 2022 11:32:25 +0800</lastBuildDate><atom:link href="https://blog.noel-zhang.work/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>一个测试工程师需要具备的能力</title>
+      <link>https://blog.noel-zhang.work/post/testtheory/theabilitesthatatestengineerneeds/</link>
+      <pubDate>Fri, 07 Jan 2022 11:32:25 +0800</pubDate>
+      
+      <guid>https://blog.noel-zhang.work/post/testtheory/theabilitesthatatestengineerneeds/</guid>
+      <description>准确描述bug 需求理解能力</description>
+    </item>
+    
+    <item>
+      <title>2021 年终总结：一直在找寻最终目标</title>
+      <link>https://blog.noel-zhang.work/post/other/2021summary/</link>
+      <pubDate>Fri, 07 Jan 2022 09:15:51 +0800</pubDate>
+      
+      <guid>https://blog.noel-zhang.work/post/other/2021summary/</guid>
+      <description>本来并没有计划要写一篇总结，也是在推上看到好多人写了，觉得自己也应该写一写，毕竟这一年也发生了好多事。 工作 到年底，已经做了两年多的测试了，个</description>
+    </item>
+    
     <item>
       <title>使用 Hugo &#43; GitHub Pages 搭建免费静态博客</title>
       <link>https://blog.noel-zhang.work/post/util/%E4%BD%BF%E7%94%A8hugogithubpages%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/</link>
