@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Noel&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 07 Jan 2022 09:15:51 +0800</lastBuildDate><atom:link href="https://blog.noel-zhang.work/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 07 Mar 2022 11:21:56 +0800</lastBuildDate><atom:link href="https://blog.noel-zhang.work/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>探索式软件测试</title>
+      <link>https://blog.noel-zhang.work/post/testtheory/exploratory-software-testing/</link>
+      <pubDate>Mon, 07 Mar 2022 11:21:56 +0800</pubDate>
+      
+      <guid>https://blog.noel-zhang.work/post/testtheory/exploratory-software-testing/</guid>
+      <description>读书笔记 《软件测试 52 讲》-茹炳晟 探索式测试的一般过程： 首先根据软件功能描述来设计最初的测试用例，然后执行测试；测试执行后，我们可能得到与预期</description>
+    </item>
+    
     <item>
       <title>2021 年终总结：一直在找寻最终目标</title>
       <link>https://blog.noel-zhang.work/post/other/2021summary/</link>
