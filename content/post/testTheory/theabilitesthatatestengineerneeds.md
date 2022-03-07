@@ -1,5 +1,5 @@
 ---
-title: "Theabilitesthatatestengineerneeds"
+title: "一个测试工程师需要的具备的核心竞争力"
 date: 2022-01-08T17:04:42+08:00
 draft: true
 ---
