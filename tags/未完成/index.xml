@@ -6,20 +6,11 @@
     <description>Recent content in 未完成 on Noel&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 24 Jun 2021 16:25:00 +0800</lastBuildDate><atom:link href="https://blog.noel-zhang.work/tags/%E6%9C%AA%E5%AE%8C%E6%88%90/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>UI 自动化学习笔记</title>
-      <link>https://blog.noel-zhang.work/post/uiautotest/2021-06-24-geektime-selenium/</link>
-      <pubDate>Thu, 24 Jun 2021 16:25:00 +0800</pubDate>
-      
-      <guid>https://blog.noel-zhang.work/post/uiautotest/2021-06-24-geektime-selenium/</guid>
-      <description>极客时间 Selenium 自动化测试实战 课程笔记</description>
-    </item>
-    
+    <lastBuildDate>Sun, 18 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.noel-zhang.work/tags/%E6%9C%AA%E5%AE%8C%E6%88%90/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Shell 学习笔记</title>
       <link>https://blog.noel-zhang.work/post/shell/2021-04-18-shell%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Sun, 18 Apr 2021 16:25:00 +0800</pubDate>
+      <pubDate>Sun, 18 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>https://blog.noel-zhang.work/post/shell/2021-04-18-shell%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
       <description>Shell 学习过程中的一些记录 变量 变量定义 变量名与值使用一个等号 &amp;lsquo;=&amp;rsquo; 连接 1 $country=china 等号两边不能存在空格 1 2 $country =china # country: command not found $country= china # country: command not found 变量名不能以数字开头，</description>

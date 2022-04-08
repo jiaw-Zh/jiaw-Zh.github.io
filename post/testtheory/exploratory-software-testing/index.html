@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>探索式软件测试 - Noel&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Noel" /><meta name="description" content="读书笔记 《软件测试 52 讲》-茹炳晟 探索式测试的一般过程： 首先根据软件功能描述来设计最初的测试用例，然后执行测试；测试执行后，我们可能得到与预期" /><meta name="keywords" content="noel, blog, tester" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.89.2 with theme even" />
+
+
+<link rel="canonical" href="https://blog.noel-zhang.work/post/testtheory/exploratory-software-testing/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.80a2b96dbc56bdf361b3266b0f075829780890f346be9cfcfdb02780317944a0.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="探索式软件测试" />
+<meta property="og:description" content="读书笔记 《软件测试 52 讲》-茹炳晟 探索式测试的一般过程： 首先根据软件功能描述来设计最初的测试用例，然后执行测试；测试执行后，我们可能得到与预期" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.noel-zhang.work/post/testtheory/exploratory-software-testing/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-03-07T11:21:56+08:00" />
+<meta property="article:modified_time" content="2022-03-07T11:21:56+08:00" />
+
+<meta itemprop="name" content="探索式软件测试">
+<meta itemprop="description" content="读书笔记 《软件测试 52 讲》-茹炳晟 探索式测试的一般过程： 首先根据软件功能描述来设计最初的测试用例，然后执行测试；测试执行后，我们可能得到与预期"><meta itemprop="datePublished" content="2022-03-07T11:21:56+08:00" />
+<meta itemprop="dateModified" content="2022-03-07T11:21:56+08:00" />
+<meta itemprop="wordCount" content="1451">
+<meta itemprop="keywords" content="2022,探索式测试," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="探索式软件测试"/>
+<meta name="twitter:description" content="读书笔记 《软件测试 52 讲》-茹炳晟 探索式测试的一般过程： 首先根据软件功能描述来设计最初的测试用例，然后执行测试；测试执行后，我们可能得到与预期"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Noel&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Noel&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">探索式软件测试</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-03-07 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA/"> 测试理论 </a>
+            </div>
+          <span class="more-meta"> 约 1451 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#探索式测试的一般过程">探索式测试的一般过程：</a></li>
+            <li><a href="#探索式测试的定义">探索式测试的定义</a></li>
+            <li><a href="#如何开展探索式测试">如何开展探索式测试</a></li>
+            <li><a href="#总结">总结</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>读书笔记 <a href="https://time.geekbang.org/column/intro/100009601?tab=catalog">《软件测试 52 讲》-茹炳晟</a></p>
+</blockquote>
+<h3 id="探索式测试的一般过程">探索式测试的一般过程：</h3>
+<p>首先根据软件功能描述来设计最初的测试用例，然后执行测试；测试执行后，我们可能得到与预期输出不完全一致的实际输出，于是你会猜测这种不一致是否可能来自于软件的缺陷；为了验证这个想法，我们会根据错误输出设计新的测试用例，然后执行新的用例以检查软件的输出。</p>
+<p>在一次测试中，我们可能会经过几轮这样的猜测和验证，进行反复“探索”，最终确定了一个软件的缺陷。而这个过程中，我们会发现，识别缺陷的思路和测试用例的设计，并没有出现在最初的测试设计和测试用例文档中，而是以很快的速度在我们的脑海中以及实际测试执行和验证中快速迭代。</p>
+<p>从本质上来看，上述的两个过程就是探索式测试最基本的思维模型了。所以说，探索式测试本身并不是一种测试技术，而是一种软件测试风格。这个测试风格，强调测试工程师要同时开展测试学习、测试设计、测试执行和测试结果评估等一系列的活动，以持续优化测试工作。</p>
+<h3 id="探索式测试的定义">探索式测试的定义</h3>
+<p><strong>首先，探索式测试是一种软件测试风格，而不是一种具体的软件测试技术。</strong> 作为一种思维方法，探索式测试强调依据当前语境与上下文选择最合适的测试技术。所以，切记不要将探索式测试误认为是一种测试技术，而应该理解为一种利用各种测试技术“探索”软件潜在缺陷的测试风格。</p>
+<p><strong>其次，探索式测试强调独立测试工程师的个人自由和责任，其目的是为了持续优化其工作的价值。</strong> 测试工程师应该为软件产品负责，充分发挥主观能动性，在整体上持续优化个人和团队的产出。这种思想方法，与精益生产、敏捷软件开发的理念高度一致，这也正是探索式测试受到敏捷团队欢迎的原因之一。</p>
+<p>这里需要特别指出的是，<strong>探索式测试对个人的能力有很高的依赖：</strong> 同样的测试风格，由不同的人来具体执行，得到的结果可能会差别巨大。因此，对执行探索式测试的工程师的要求就会比较高，除了要能够从业务上深入理解被测系统外，还要有很强的逻辑分析与推理能力，当然对测试技术以及测试用例设计的融会贯通也是必不可少的技能。</p>
+<p><strong>最后，探索式测试建议在整个项目过程中，将测试相关学习、测试设计、测试执行和测试结果解读作为相互支持的活动，并行执行。</strong>
+注意，这里的并行（run in parallel）并不是真正意义上的并行，而是指对测试学习、测试设计、测试执行和测试分析的快速迭代，即在较短的时间内（比如，1 个小时或者 30 分钟内）快速完成多次循环，以此来不断收集反馈、调整测试、优化价值。这样，在外部看来，就会感觉这些活动是在并行地执行。</p>
+<p>探索式测试有明确的测试目标和测试设计，只是测试设计的时间很短，会以很高的频率与测试执行交替切换。</p>
+<h3 id="如何开展探索式测试">如何开展探索式测试</h3>
+<p>通常，<strong>我们首先会对软件的单一功能进行比较细致的探索式测试。</strong> “探索”的过程主要是 <strong>基于功能需求以及非功能性需求</strong> 进行扩展和延伸，期间可以采用类似“头脑风暴”的工具，比如 Xmind 等，帮助我们整理思路。</p>
+<p>然后，我们往往会<strong>开展系统交互的探索式测试</strong>，这个过程通常会采用基于反馈的探索式测试方法。基于反馈的探索式测试方法，会运用所有可用的测试技术，以及基于对产品深入理解后的技术直觉，并结合上一次测试结果的反馈与分析结果，指导测试工程师下一步的测试行动。</p>
+<h3 id="总结">总结</h3>
+<p>探索式测试是一种软件测试风格，而不是一种具体的软件测试技术。</p>
+<p>作为一种思维方法，探索式测试强调依据当前语境与上下文选择最适合的测试技术，并且强调独立测试工程师的个人自由和责任，其目的是为了持续优化其工作的价值。</p>
+<p>探索式测试建议在整个项目中，将测试相关学习、测试设计、测试执行和测试结果解读作为相互支持的活动，并行地执行。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Noel</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2022-03-07
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/2022/">2022</a>
+          <a href="/tags/%E6%8E%A2%E7%B4%A2%E5%BC%8F%E6%B5%8B%E8%AF%95/">探索式测试</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/testtheory/testing-of-distributed-architecture/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">基于架构的测试</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/other/2021summary/">
+            <span class="next-text nav-default">2021 年终总结：一直在找寻最终目标</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:zjw5734@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/jiaw-Zh" class="iconfont icon-github" title="github"></a>
+  <a href="https://blog.noel-zhang.work/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Based on Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2021 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Noel</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

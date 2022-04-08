@@ -6,7 +6,25 @@
     <description>Recent content on Noel&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 07 Jan 2022 09:15:51 +0800</lastBuildDate><atom:link href="https://blog.noel-zhang.work/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Mar 2022 21:52:04 +0800</lastBuildDate><atom:link href="https://blog.noel-zhang.work/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>基于架构的测试</title>
+      <link>https://blog.noel-zhang.work/post/testtheory/testing-of-distributed-architecture/</link>
+      <pubDate>Sat, 12 Mar 2022 21:52:04 +0800</pubDate>
+      
+      <guid>https://blog.noel-zhang.work/post/testtheory/testing-of-distributed-architecture/</guid>
+      <description>架构测试的基本原则 对于测试人员来讲，学习架构知识应该有自己独特的视角 基本只要做到清楚原理、了解在被测系统中的部署架构，从测试的角度能够调用必</description>
+    </item>
+    
+    <item>
+      <title>探索式软件测试</title>
+      <link>https://blog.noel-zhang.work/post/testtheory/exploratory-software-testing/</link>
+      <pubDate>Mon, 07 Mar 2022 11:21:56 +0800</pubDate>
+      
+      <guid>https://blog.noel-zhang.work/post/testtheory/exploratory-software-testing/</guid>
+      <description>读书笔记 《软件测试 52 讲》-茹炳晟 探索式测试的一般过程： 首先根据软件功能描述来设计最初的测试用例，然后执行测试；测试执行后，我们可能得到与预期</description>
+    </item>
+    
     <item>
       <title>2021 年终总结：一直在找寻最终目标</title>
       <link>https://blog.noel-zhang.work/post/other/2021summary/</link>
@@ -98,15 +116,6 @@
     </item>
     
     <item>
-      <title>UI 自动化学习笔记</title>
-      <link>https://blog.noel-zhang.work/post/uiautotest/2021-06-24-geektime-selenium/</link>
-      <pubDate>Thu, 24 Jun 2021 16:25:00 +0800</pubDate>
-      
-      <guid>https://blog.noel-zhang.work/post/uiautotest/2021-06-24-geektime-selenium/</guid>
-      <description>极客时间 Selenium 自动化测试实战 课程笔记</description>
-    </item>
-    
-    <item>
       <title>个人常用 VS Code 插件</title>
       <link>https://blog.noel-zhang.work/post/util/2021-06-16-vscode_extension/</link>
       <pubDate>Wed, 16 Jun 2021 16:25:00 +0800</pubDate>
@@ -136,7 +145,7 @@
     <item>
       <title>Shell 学习笔记</title>
       <link>https://blog.noel-zhang.work/post/shell/2021-04-18-shell%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Sun, 18 Apr 2021 16:25:00 +0800</pubDate>
+      <pubDate>Sun, 18 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>https://blog.noel-zhang.work/post/shell/2021-04-18-shell%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
       <description>Shell 学习过程中的一些记录 变量 变量定义 变量名与值使用一个等号 &amp;lsquo;=&amp;rsquo; 连接 1 $country=china 等号两边不能存在空格 1 2 $country =china # country: command not found $country= china # country: command not found 变量名不能以数字开头，</description>
