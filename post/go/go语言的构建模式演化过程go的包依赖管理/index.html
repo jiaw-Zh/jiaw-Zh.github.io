@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Go语言的构建模式演化过程——Go的包依赖管理 - Noel&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Noel" /><meta name="description" content="重新整理于 Tony Bai · Go 语言第一课 Go Module 已经是 go 官方标准包依赖管理和构建模式了，所以从 go 入门开始就建议直接使用 Go Module。 Go 程序是由 Go 包组合而成" /><meta name="keywords" content="noel, blog, tester" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.89.2 with theme even" />
+
+
+<link rel="canonical" href="https://blog.noel-zhang.work/post/go/go%E8%AF%AD%E8%A8%80%E7%9A%84%E6%9E%84%E5%BB%BA%E6%A8%A1%E5%BC%8F%E6%BC%94%E5%8C%96%E8%BF%87%E7%A8%8Bgo%E7%9A%84%E5%8C%85%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.80a2b96dbc56bdf361b3266b0f075829780890f346be9cfcfdb02780317944a0.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Go语言的构建模式演化过程——Go的包依赖管理" />
+<meta property="og:description" content="重新整理于 Tony Bai · Go 语言第一课 Go Module 已经是 go 官方标准包依赖管理和构建模式了，所以从 go 入门开始就建议直接使用 Go Module。 Go 程序是由 Go 包组合而成" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.noel-zhang.work/post/go/go%E8%AF%AD%E8%A8%80%E7%9A%84%E6%9E%84%E5%BB%BA%E6%A8%A1%E5%BC%8F%E6%BC%94%E5%8C%96%E8%BF%87%E7%A8%8Bgo%E7%9A%84%E5%8C%85%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-04-11T14:51:29+08:00" />
+<meta property="article:modified_time" content="2022-04-11T14:51:29+08:00" />
+
+<meta itemprop="name" content="Go语言的构建模式演化过程——Go的包依赖管理">
+<meta itemprop="description" content="重新整理于 Tony Bai · Go 语言第一课 Go Module 已经是 go 官方标准包依赖管理和构建模式了，所以从 go 入门开始就建议直接使用 Go Module。 Go 程序是由 Go 包组合而成"><meta itemprop="datePublished" content="2022-04-11T14:51:29+08:00" />
+<meta itemprop="dateModified" content="2022-04-11T14:51:29+08:00" />
+<meta itemprop="wordCount" content="1494">
+<meta itemprop="keywords" content="2022,Golang,Go Module," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Go语言的构建模式演化过程——Go的包依赖管理"/>
+<meta name="twitter:description" content="重新整理于 Tony Bai · Go 语言第一课 Go Module 已经是 go 官方标准包依赖管理和构建模式了，所以从 go 入门开始就建议直接使用 Go Module。 Go 程序是由 Go 包组合而成"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Noel&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Noel&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Go语言的构建模式演化过程——Go的包依赖管理</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-04-11 </span>
+        <div class="post-category">
+            <a href="/categories/golang/"> Golang </a>
+            </div>
+          <span class="more-meta"> 约 1494 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#gopath">GOPATH</a></li>
+        <li><a href="#vendor-机制">Vendor 机制</a></li>
+        <li><a href="#go-module">Go Module</a>
+          <ul>
+            <li><a href="#创建一个-go-module">创建一个 Go Module</a></li>
+            <li><a href="#go-module的4类常规操作">Go Module的4类常规操作</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>重新整理于 <a href="https://time.geekbang.org/column/article/429941">Tony Bai · Go 语言第一课</a></p>
+</blockquote>
+<blockquote>
+<p>Go Module 已经是 go 官方标准包依赖管理和构建模式了，所以从 go 入门开始就建议直接使用 Go Module。</p>
+</blockquote>
+<p>Go 程序是由 Go 包组合而成的，Go 程序的构建过程就是<strong>确定包版本、编译包以及将编译后得到的目标文件链接在一起的过程</strong>。</p>
+<p>Go 语言的构建模式历经了三个迭代和演化过程，分别是最初期的 GOPATH、1.5 版本的 Vendor 机制，以及现在的 Go Module。</p>
+<h2 id="gopath">GOPATH</h2>
+<p>Go 语言在首次开源时，就内置了一种名为 GOPATH 的构建模式。在这种构建模式下，Go 编译器可以在<strong>本地 GOPATH 环境变量配置的路径</strong>下，搜寻 Go 程序依赖的第三方包。如果存在，就使用这个本地包进行编译；如果不存在，就会报编译错误。</p>
+<p>GOAPTH 的路径可以通过命令 <code>go env GOPATH</code> 查看，默认值是 <code>$HOME/go</code></p>
+<p>使用 GOPATH 进行构建时，代码总是会保存在 <code>$GOPATH/src</code> 目录下，在工程经过 <code>go build</code>、<code>go install</code> 或 <code>go get</code> 等指令后，会将产生的二进制可执行文件放在 <code>$GOPATH/bin</code> 目录下，生成的中间缓存文件会被保存在 <code>$GOPATH/pkg</code> 下。</p>
+<p>那么在 <code>GOPATH</code> 构建模式下，Go 编译器在编译 Go 程序时，就会在 <code>$GOPATH</code> 路径下搜索第三方依赖包是否存在，如果没有找到我们可以通过 <code>go get</code> 命令将本地缺失的第三方依赖包下载到本地，比如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ go get github.com/sirupsen/logrus
+</code></pre></td></tr></table>
+</div>
+</div><p>这里的 go get 命令，不仅能将 logrus 包下载到 GOPATH 环境变量配置的目录下，它还会检查 logrus 的依赖包在本地是否存在，如果不存在，go get 也会一并将它们下载到本地。</p>
+<p>不过，在 GOPATH 构建模式下，Go 编译器实质上并<strong>没有关注 Go 项目所依赖的第三方包的版本</strong>。但 Go 开发者希望自己的 Go 项目所依赖的第三方包版本能受到自己的控制，而不是随意变化。于是 Go 核心开发团队引入了 Vendor 机制试图解决上面的问题。</p>
+<h2 id="vendor-机制">Vendor 机制</h2>
+<p>Go 在 1.5 版本中引入 vendor 机制。vendor 机制本质上就是在 Go 项目的某个特定目录下，将项目的所有依赖包缓存起来，这个特定目录名就是 vendor。</p>
+<p>Go 编译器会优先感知和使用 vendor 目录下缓存的第三方包版本，而不是 GOPATH 环境变量所配置的路径下的第三方包版本。这样，无论第三方依赖包自己如何变化，无论 GOPATH 环境变量所配置的路径下的第三方包是否存在、版本是什么，都不会影响到 Go 程序的构建。</p>
+<p>下面是一个使用 vendor 机制的项目结构：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">.
+├── main.go
+└── vendor/
+    ├── github.com/
+    │   └── sirupsen/
+    │       └── logrus/
+    └── golang.org/
+        └── x/
+            └── sys/
+                └── unix/
+</code></pre></td></tr></table>
+</div>
+</div><p>这种方式虽然一定程度解决了 Go 程序可重现构建的问题，但它也有如下两个弊端：</p>
+<ul>
+<li>要想开启 vendor 机制，你的 Go 项目必须位于 GOPATH 环境变量配置的某个路径的 src 目录下面，且庞大的 vendor 目录需要同步到代码仓库</li>
+<li>你还需要手工管理 vendor 下面的 Go 依赖包，包括项目依赖包的分析、版本的记录、依赖包获取和存放，等等</li>
+</ul>
+<h2 id="go-module">Go Module</h2>
+<p>从 Go 1.11 版本开始，除了 GOPATH 构建模式外，Go 又增加了一种 Go Module 构建模式。</p>
+<h3 id="创建一个-go-module">创建一个 Go Module</h3>
+<ol>
+<li>通过 <code>go mod init module path</code> 创建 go.mod 文件，将当前项目变为一个 Go Module</li>
+<li>通过 <code>go mod tidy</code> 命令自动更新当前项目的依赖信息</li>
+<li>通过 <code>go build</code> 执行新的 module 的构建</li>
+</ol>
+<p>一个 go mod 生成实例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ go mod init github.com/bigwhite/module-mode
+go: creating new go.mod: module github.com/bigwhite/module-mode
+go: to add module requirements and sums: 
+  go mod tidy
+</code></pre></td></tr></table>
+</div>
+</div><ol>
+<li>使用 github.com/&hellip; 作为 module path 是因为多数实用级 module 多是上传到 github 上的。用这种示例便于后续与真实生产接驳。但对于本地开发使用的简单示例程序而言，module path 可以任意起，比如：module/demo1 也是ok的</li>
+<li>编译时可以按提示手动添加依赖包及版本，也可以使用 go mod tidy 命令自动添加依赖包的版本信息到 go.mod 文件中</li>
+<li>go mod tidy 下载的第三方包一般在 $GOPATH/pkg/mod 下面</li>
+</ol>
+<p>执行完 go mod tidy 后，当前项目除了 go.mod 文件外，还多了一个新文件 go.sum，这同样是由 go mod 相关命令维护的一个文件，它存放了特定版本 module 内容的哈希值。</p>
+<h3 id="go-module的4类常规操作">Go Module的4类常规操作</h3>
+<ol>
+<li>为当前 module 添加一个依赖
+<ol>
+<li>更新源码</li>
+<li>使用go get 或 go mod tidy</li>
+</ol>
+</li>
+<li>升级 / 降级依赖的版本
+<ol>
+<li>使用带版本号的 go get：<code>go get github.com/sirupsen/logrus@v1.7.0</code></li>
+<li>使用万能的 go mod tidy</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">$go</span> mod edit -require<span class="o">=</span>github.com/sirupsen/logrus@v1.7.0
+<span class="nv">$go</span> mod tidy
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>移除一个依赖
+<ol>
+<li>修改源码</li>
+<li>万能的 go mod tidy</li>
+</ol>
+</li>
+<li>特殊情况：使用 vendor
+<ol>
+<li>go mod vendor</li>
+<li>基于 vendor 构建，需要在 go build 后面加上 -mod=vendor 参数</li>
+</ol>
+</li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Noel</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2022-04-11
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/2022/">2022</a>
+          <a href="/tags/golang/">Golang</a>
+          <a href="/tags/go-module/">Go Module</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/testtheory/testing-of-distributed-architecture/">
+            <span class="next-text nav-default">基于架构的测试</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:zjw5734@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/jiaw-Zh" class="iconfont icon-github" title="github"></a>
+  <a href="https://blog.noel-zhang.work/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Based on Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2021 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Noel</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -6,11 +6,7 @@
     <description>Recent content in 未完成 on Noel&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-<<<<<<< HEAD
     <lastBuildDate>Sun, 18 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.noel-zhang.work/tags/%E6%9C%AA%E5%AE%8C%E6%88%90/index.xml" rel="self" type="application/rss+xml" />
-=======
-    <lastBuildDate>Sun, 18 Apr 2021 16:25:00 +0800</lastBuildDate><atom:link href="https://blog.noel-zhang.work/tags/%E6%9C%AA%E5%AE%8C%E6%88%90/index.xml" rel="self" type="application/rss+xml" />
->>>>>>> 9e0ad4f777fb4c83868a2092aca12df75263a73d
     <item>
       <title>Shell 学习笔记</title>
       <link>https://blog.noel-zhang.work/post/shell/2021-04-18-shell%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>

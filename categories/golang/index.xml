@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Golang on Noel&#39;s Blog</title>
+    <link>https://blog.noel-zhang.work/categories/golang/</link>
+    <description>Recent content in Golang on Noel&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 11 Apr 2022 14:51:29 +0800</lastBuildDate><atom:link href="https://blog.noel-zhang.work/categories/golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go语言的构建模式演化过程——Go的包依赖管理</title>
+      <link>https://blog.noel-zhang.work/post/go/go%E8%AF%AD%E8%A8%80%E7%9A%84%E6%9E%84%E5%BB%BA%E6%A8%A1%E5%BC%8F%E6%BC%94%E5%8C%96%E8%BF%87%E7%A8%8Bgo%E7%9A%84%E5%8C%85%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Mon, 11 Apr 2022 14:51:29 +0800</pubDate>
+      
+      <guid>https://blog.noel-zhang.work/post/go/go%E8%AF%AD%E8%A8%80%E7%9A%84%E6%9E%84%E5%BB%BA%E6%A8%A1%E5%BC%8F%E6%BC%94%E5%8C%96%E8%BF%87%E7%A8%8Bgo%E7%9A%84%E5%8C%85%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86/</guid>
+      <description>重新整理于 Tony Bai · Go 语言第一课 Go Module 已经是 go 官方标准包依赖管理和构建模式了，所以从 go 入门开始就建议直接使用 Go Module。 Go 程序是由 Go 包组合而成</description>
+    </item>
+    
+  </channel>
+</rss>
