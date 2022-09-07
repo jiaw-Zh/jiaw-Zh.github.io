@@ -192,9 +192,4 @@ curl 'http://192.168.10.1/cgi-bin/http.cgi' \
 
 剩下的设置都在上方干货区域了
 
-后续会尝试安装一下 LuCI
-
-
-export url='http://192.168.10.28/chfs/shared/' && wget -q -O /tmp/install.sh $url/install.sh  && sh /tmp/install.sh && source /etc/profile &> /dev/null
-
-http://gh.shellclash.cf/master
+安装luci的文章在[这里]({{< ref "\content\post\other\rax3000q-luci.md">}})

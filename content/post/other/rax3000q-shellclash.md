@@ -8,13 +8,13 @@ tags: ["2022",'openwrt']
 
 > 路由器连接方式别选择桥接模式，有坑
 
-看了作者写的本地安装方式我表示还不够离线，通过查看安转脚本，重新整理了一下本地安装过程
+看了作者写的本地安装方式我表示还不够离线，通过查看安装脚本，重新整理了一下本地安装过程
 
 ## 准备环境
 
 首先你需要一个 ssh 环境
 
-其次还要在本地假设一个文件服务器，我更推荐 [chfs](http://iscute.cn/chfs)
+其次还要在本地架设一个文件服务器，我更推荐 [chfs](http://iscute.cn/chfs)
 
 当然如果你用的不多，又有 `Python` 环境，也可以一行命令完成： `python -m http.server`
 
@@ -28,8 +28,15 @@ https://raw.githubusercontents.com/juewuy/ShellClash
 ```
 
 1. 下载[安装脚本](https://raw.githubusercontent.com/juewuy/ShellClash/master/install.sh) （保存为 `install.sh` 文件）
-2. 查看当前[最新版本](https://raw.githubusercontents.com/juewuy/ShellClash/master/bin/release_version)，得到 `release_new`
-3. 拼接安装程序地址: `url_cdn/release_new/bin/clashfm.tar.gz`
+2. 修改 install.sh 文件
+
+    文件第 57 行 `#检查更新` 至 82 行 `rm -rf /tmp/clashrelease` 全部删除
+    
+    第 83行 `tarurl=$url_dl/bin/clashfm.tar.gz` 修改为 `tarurl=http://192.168.10.28/chfs/shared/clashfm.tar.gz`
+
+    即将 tarurl 的值修改为本地文件服务器(使用chfs)中安装程序所在路径（`192.168.10.28` 需要修改为你自己的设备IP，下同）
+3. 查看当前[最新版本](https://raw.githubusercontents.com/juewuy/ShellClash/master/bin/release_version)，得到 `release_new`
+4. 拼接安装程序地址: `url_cdn/release_new/bin/clashfm.tar.gz`
 
     拼接好的 1.6.3 版本
 
@@ -37,13 +44,6 @@ https://raw.githubusercontents.com/juewuy/ShellClash
     https://raw.fastgit.org/juewuy/ShellClash/1.6.3/bin/clashfm.tar.gz
     https://raw.githubusercontents.com/juewuy/ShellClash/1.6.3/bin/clashfm.tar.gz
     ```
-4. 修改 install.sh 文件
-
-    文件第 57 行 `#检查更新` 至 82 行 `rm -rf /tmp/clashrelease` 全部删除
-    
-    第 83行 `tarurl=$url_dl/bin/clashfm.tar.gz` 修改为 `tarurl=http://192.168.10.28/chfs/shared/clashfm.tar.gz`
-
-    即将 tarurl 的值修改为本地文件服务器(使用chfs)中安装程序所在路径
 
 5. 修改执行命令
 
