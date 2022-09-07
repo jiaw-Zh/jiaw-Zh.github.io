@@ -1,5 +1,5 @@
 ---
-title: "中国移动Rax3000q路由器开启ssh/telnet，解锁超级管理员"
+title: "中国移动RAX3000Q路由器开启ssh/telnet，解锁超级管理员"
 date: 2022-09-05T10:42:27+08:00
 draft: false
 categories: ['其他']
@@ -40,7 +40,7 @@ http://192.168.10.1/#/home/network/routeList（静态路由）
         
         `ssh -p 22 root@172.16.2.204`
 
-    - 这里需要注意的是，ssh服务的IP是 172.16 网段的（可以通过admin登录路由器后台查看：主页 ——> LAN IP），而不是 192.168.10.1 这个路由器管理后台，我被这个东西卡了好久。登录后记得用`passwd`修改root账号密码
+    - 因为我的路由器是桥接模式，所以这里需要注意的是，ssh服务的IP是 172.16 网段的（可以通过admin登录路由器后台查看：主页 ——> LAN IP），而不是 192.168.10.1 这个路由器管理后台，我被这个东西卡了好久。登录后记得用`passwd`修改root账号密码
 
 - 更改 dropbear 配置并设置自启
     - 编辑 dropbear 配置文件
@@ -193,3 +193,8 @@ curl 'http://192.168.10.1/cgi-bin/http.cgi' \
 剩下的设置都在上方干货区域了
 
 后续会尝试安装一下 LuCI
+
+
+export url='http://192.168.10.28/chfs/shared/' && wget -q -O /tmp/install.sh $url/install.sh  && sh /tmp/install.sh && source /etc/profile &> /dev/null
+
+http://gh.shellclash.cf/master
