@@ -192,4 +192,4 @@ curl 'http://192.168.10.1/cgi-bin/http.cgi' \
 
 剩下的设置都在上方干货区域了
 
-安装luci的文章在[这里]({{< ref "\content\post\other\rax3000q-luci.md">}})
+安装luci的文章在[这里]({{< ref "/content/post/other/rax3000q-luci.md">}})
