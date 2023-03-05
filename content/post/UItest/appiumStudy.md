@@ -4,7 +4,7 @@ date: 2022-12-13T15:18:15+08:00
 draft: false
 categories: [UI自动化]
 tags: ["2022","自动化测试","未完成"]
-lastmod: 2022-12-14
+lastmod: 2023-03-05
 ---
 
 ### Appium 生态工具介绍
@@ -51,3 +51,21 @@ lastmod: 2022-12-14
 4. 选择自己的配置
 
 5. 启动服务
+
+### Appium Caps
+
+```python
+caps["autoGrantPermissions"] = True  # 获取需要的权限
+caps["appPackage"] = "com.xueqiu.android" #应用包名，获取方法在下面
+caps["appActivity"] = ".view.WelcomeActivityAlias" #期望在应用内启动的活动页，一般以 . 开头
+```
+
+获取应用包名和activity
+```powershell
+#打开应用并停留在想获取的 activity 页面，执行下面的命令
+$ adb shell dumpsys window | findstr mCurrentFocus
+  mCurrentFocus=Window{efa5b65 u0 com.xueqiu.android/com.xueqiu.android.view.WelcomeActivityAlias}
+```
+`com.xueqiu.android/com.xueqiu.android.view.WelcomeActivityAlias` 中
+`com.xueqiu.android` 就是应用包名
+`.view.WelcomeActivityAlias` 就是当前页面的 activity
