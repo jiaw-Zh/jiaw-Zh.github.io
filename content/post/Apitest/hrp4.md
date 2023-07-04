@@ -1,7 +1,7 @@
 ---
 title: "HttpRunner 4 快速上手"
 date: 2022-07-27T10:50:29+08:00
-categories: [接口测试]
+categories: ["接口测试","未完成"]
 tags: ["2022",'httprunner',"未完成"]
 draft: false
 ---

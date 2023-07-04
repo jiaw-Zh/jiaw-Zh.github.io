@@ -1,7 +1,7 @@
 ---
 title: "Go 学习笔记"
 date: 2022-04-20T10:02:07+08:00
-categories: [Golang]
+categories: ['Golang','草稿']
 tags: ["2022",'Golang'] 
 toc: true
 draft: true

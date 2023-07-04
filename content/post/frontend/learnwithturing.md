@@ -1,7 +1,7 @@
 ---
 title: "图灵前端学习记录"
 date: 2023-02-26T18:22:01+08:00
-categories: ["前端"]
+categories: ["前端","草稿"]
 tags: ["2023","未完成"]
 draft: true
 lastmod: 2023-03-04
