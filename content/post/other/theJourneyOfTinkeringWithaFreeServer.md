@@ -21,7 +21,108 @@ wget -O tcp.sh "https://github.com/ylx2016/Linux-NetSpeed/raw/master/tcp.sh" && 
 
 ## 安装代理
 
-我选择的是 [shadowsocks-rust]，选择的原因就两个，首先rust写的，性能应该不错，然后支持[v2ray-plugin]
+## *使用xray*
+
+### 安装
+
+~~这里我使用的是[八合一脚本](https://www.v2ray-agent.com/archives/1682491479771)~~(配合cdn太拉了)
+
+```bash
+wget -P /root -N --no-check-certificate "https://raw.githubusercontent.com/mack-a/v2ray-agent/master/install.sh" && chmod 700 /root/install.sh && /root/install.sh
+```
+
+该脚本运行一次以后，以后想调出该脚本使用，只需要在 VPS 命令行输入 vasma 即可
+
+因为IP已经被封了，选择直接选择```1.VLESS+TLS+WS[CDN]```
+
+然后一路填写下去即可
+
+
+xray启动文件 /etc/systemd/system/xray.service
+
+---
+
+### 手动搭建 xray+ cdn
+
+> 提前准备一个域名，DNS 解析交给 [Cloudflare]，如果IP已经被墙，就开启 CDN 否则只把 DNS 放在 CF 就好了
+
+#### 使用[233boy的脚本](https://233boy.com/xray/xray-script/)
+
+```shell
+bash <(wget -qO- -o- https://github.com/233boy/Xray/raw/main/install.sh) -v v1.8.3
+```
+
+安装完成后重新执行```xray```命令，添加配置，选择 ```8) VLESS-WS-TLS``` ，然后填一下域名就行了
+
+caddy 配置文件： ```/etc/caddy/Caddyfile``` 
+
+xray 配置文件，基本不用动： ```/etc/xray/config.json```
+
+xray 配置文件夹： ```/etc/xray/conf```
+
+#### 创建多用户
+
+**编辑caddy配置文件**
+
+```shell
+vi /etc/caddy/233boyexample.com.conf
+```
+
+在 ```example.com:443 {}``` 中添加一行 ```reverse_proxy /jan 127.0.0.1:36231```
+
+**编辑xray配置文件**
+
+```shell
+vi /etc/xray/conf/VLESS-WS-TLS-example.com.json
+```
+
+```json
+{
+  "inbounds": [
+    {},//{}中原有内容不变
+    //以下是新添加内容，其中port和path要和上面caddy配置文件中一致,tag也要修改为不同的值
+    {
+      "tag": "VLESS-WS-TLS-example.com.json",
+      "port": 36231,
+      "listen": "127.0.0.1",
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "5fbe3aec-ac5a-4a96-8239-3f6c3d94cf55"
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "wsSettings": {
+          "path": "/jan",
+          "headers": {
+            "Host": "example.com"
+          }
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      }
+    }
+  ]
+}
+
+```
+
+
+---
+
+## *慎用ss，太容易被封了*
+
+~~我选择的是 [shadowsocks-rust]，选择的原因就两个，首先rust写的，性能应该不错，然后支持[v2ray-plugin]~~
 
 ### 下载 shadowsocks-rust
 
@@ -82,7 +183,7 @@ systemctl start ssrust //启动
 systemctl stop ssrust //停止
 systemctl is-enabled ssrust //判断服务是否处于开机自启状态，输出enabled即代表开机自启
 ```
-## 防火墙
+### 防火墙
 根据这篇文章：[如何部署一台抗封锁的Shadowsocks-libev服务器](https://gfw.report/blog/ss_tutorial/zh/)，我也使用ufw配置防火墙简单加固一下
 
 在 Debian 11 安装 ufw
@@ -115,6 +216,15 @@ To                         Action      From
 8388 (v6)                  ALLOW       Anywhere (v6)
 ```
 
+---
+
+
+
+
+
+
+
 
 [shadowsocks-rust]:https://github.com/shadowsocks/shadowsocks-rust
 [v2ray-plugin]:https://github.com/shadowsocks/v2ray-plugin
+[Cloudflare]:https://www.cloudflare.com
